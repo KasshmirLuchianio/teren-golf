@@ -19,6 +19,9 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
 
+      - name: Install Pillow
+        run: pip install --quiet pillow
+
       - name: Download and optimize images
         run: |
           set -euo pipefail
@@ -42,7 +45,13 @@ jobs:
           for name in "${!IMAGES[@]}"; do
             echo "Fetching $name..."
             curl -fsSL "$BASE/${IMAGES[$name]}" -o "tmp-img/$name.png"
-            ffmpeg -y -loglevel error -i "tmp-img/$name.png" -vf "scale='min(1600,iw)':-2" -q:v 4 "assets/img/$name.jpg"
+            python3 -c "
+from PIL import Image
+im = Image.open('tmp-img/$name.png').convert('RGB')
+if im.width > 1600:
+    im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
+im.save('assets/img/$name.jpg', quality=82, optimize=True)
+"
           done
           rm -rf tmp-img
           ls -la assets/img/
