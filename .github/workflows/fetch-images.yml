@@ -2,6 +2,11 @@ name: Fetch AI-generated images
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - claude/golf-course-website-mvp-tqx9ae
+    paths:
+      - ".github/workflows/fetch-images.yml"
 
 permissions:
   contents: write
