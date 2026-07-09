@@ -42,7 +42,7 @@ jobs:
           for name in "${!IMAGES[@]}"; do
             echo "Fetching $name..."
             curl -fsSL "$BASE/${IMAGES[$name]}" -o "tmp-img/$name.png"
-            convert "tmp-img/$name.png" -resize "1600x1600>" -quality 82 -strip "assets/img/$name.jpg"
+            ffmpeg -y -loglevel error -i "tmp-img/$name.png" -vf "scale='min(1600,iw)':-2" -q:v 4 "assets/img/$name.jpg"
           done
           rm -rf tmp-img
           ls -la assets/img/
