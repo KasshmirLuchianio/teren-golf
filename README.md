@@ -8,18 +8,29 @@ hosting simplu (nu necesită server Node.js sau bază de date).
 ## Structură
 
 ```
-index.html            Homepage
-teren-de-golf.html    Pagină teren de golf
-cazare.html           Pagină cazare / pensiune
-galerie.html          Galerie foto/video (cu filtre pe categorii)
-preturi.html          Prețuri și pachete
-contact.html          Formular de rezervare + hartă + contact
-partials/             Header și footer comune, încărcate automat
-assets/css/style.css  Toate stilurile
-assets/js/config.js   Datele de contact/site — un singur loc de editat
-assets/js/include.js  Încarcă header/footer și aplică datele din config.js
-assets/js/main.js     Meniu mobil, galerie, lightbox, formular
+index.html                 Homepage (hero 3D + foto)
+teren-de-golf.html         Pagină teren de golf
+cazare.html                Pagină cazare / pensiune
+galerie.html               Galerie foto (filtre pe categorii + lightbox)
+preturi.html               Prețuri și pachete
+contact.html               Formular de rezervare + hartă + contact
+partials/                  Header și footer comune, încărcate automat
+assets/css/style.css       Design system premium (glassmorphism, gold, noise)
+assets/js/config.js        Datele de contact/site — un singur loc de editat
+assets/js/include.js       Încarcă header/footer și aplică datele din config.js
+assets/js/hero3d.js        Scena 3D din hero (Three.js): minge de golf, inel
+                           auriu, particule; fallback static pe mobil
+assets/js/fx.js            Reveal cu stagger, tilt 3D pe carduri, contoare,
+                           parallax pe hero-urile interioare
+assets/js/main.js          Filtre galerie, lightbox, formular
+assets/js/vendor/three.min.js  Three.js r160 (local, fără CDN)
+assets/img/                Fotografii generate AI (Higgsfield, soul_location)
 ```
+
+> **Notă imagini:** fotografiile din `assets/img/` sunt generate cu AI ca
+> imagini de prezentare premium. Înlocuiește-le cu fotografii reale ale
+> terenului atunci când clientul le furnizează — păstrează aceleași nume de
+> fișiere și nu trebuie modificat nimic în cod.
 
 ## Ce trebuie completat înainte de livrare către client
 
@@ -48,20 +59,11 @@ Dacă preferi altă soluție (email direct, alt serviciu), doar schimbă
 logica din `initForm()` în `assets/js/main.js`.
 
 ### 3. Fotografii reale
-Toate imaginile sunt momentan **placeholder-e** (dreptunghiuri cu iconițe
-și etichete de tipul „Fotografie teren — de adăugat"), special create
-pentru a nu folosi poze de stock care nu reprezintă terenul real.
-
-Pentru a le înlocui cu fotografii reale:
-1. Pune pozele în `assets/img/`
-2. Înlocuiește elementele `<div class="ph-image ...">...</div>` cu
-   `<img src="assets/img/numele-pozei.jpg" alt="...">` în paginile HTML
-3. Pentru galerie (`galerie.html`), la fel — înlocuiește placeholder-ul din
-   fiecare `.gallery-item` cu `<img>`, păstrând atributul
-   `data-lightbox="Titlu poză"` dacă vrei ca lightbox-ul să afișeze
-   aceeași imagine mărită (necesită o mică ajustare în
-   `assets/js/main.js`, funcția `initLightbox`, pentru a citi `src`-ul
-   real în loc de placeholder)
+Site-ul folosește fotografii generate cu AI (Higgsfield) în `assets/img/`.
+Când clientul furnizează fotografii reale ale terenului, înlocuiește
+fișierele păstrând aceleași nume (`hero-golf.jpg`, `fairway.jpg`,
+`aerial.jpg` etc.) — nu e nevoie de nicio modificare în cod. Lightbox-ul
+citește automat imaginea din fiecare `.gallery-item`.
 
 ### 4. Textele
 Toate textele sunt scrise generic, pregătite să fie personalizate cu
