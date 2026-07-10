@@ -10,7 +10,7 @@ const SITE_CONFIG = {
   tagline: "Golf de poveste, la doar un swing distanță",
   phoneDisplay: "0712 345 678",
   phoneHref: "tel:+40712345678",
-  whatsappNumber: "40712345678", // fără +, fără spații
+  whatsappNumber: "40721297370", // fără +, fără spații
   whatsappDefaultMessage: "Bună ziua! Aș dori informații despre rezervări.",
   email: "contact@golfvaleaverde.ro",
   address: "Str. Fâneațelor nr. 1, Comuna Exemplu, Județul Cluj",
