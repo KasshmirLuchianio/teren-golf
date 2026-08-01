@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import CatalogueView from "@/components/catalogue/CatalogueView";
+import CatalogueView from "@/components/catalog/CatalogueView";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "The Collection",
+  title: "Colecția",
   description:
-    "Every vintage and pre-owned piece currently selected by Ileana Giusca, with filters for size, brand, material, colour and condition.",
+    "Toate piesele vintage și pre-owned alese acum de Ileana Giusca, cu filtre pentru mărime, marcă, material, culoare și stare.",
 };
 
 export default function CataloguePage() {
@@ -14,7 +14,7 @@ export default function CataloguePage() {
     <Suspense
       fallback={
         <Container className="py-20">
-          <p className="label text-warmgrey">Loading the selection…</p>
+          <p className="label text-warmgrey">Se încarcă selecția…</p>
         </Container>
       }
     >

@@ -17,14 +17,14 @@ export default function CadeauButton() {
         aria-haspopup="dialog"
       >
         <Gift size={16} strokeWidth={1.3} className="text-gold" aria-hidden="true" />
-        <span className="label text-[0.62rem]">A little cadeau</span>
+        <span className="label text-[0.62rem]">Un mic cadou</span>
       </button>
 
       <Modal
         open={open}
         onClose={() => setOpen(false)}
-        eyebrow="With our compliments"
-        title="A little cadeau"
+        eyebrow="Din partea casei"
+        title="Un mic cadou"
         labelledBy="cadeau-title"
       >
         <WheelOfFortune />

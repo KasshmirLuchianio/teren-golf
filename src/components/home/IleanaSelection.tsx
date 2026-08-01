@@ -5,19 +5,19 @@ import { LinkButton } from "@/components/ui/Button";
 
 const principles = [
   {
-    title: "Materials made to last",
+    title: "Materiale făcute să reziste",
     detail:
-      "Wool that still has body, silk with weight, leather that has taken a patina rather than worn thin.",
+      "Lână care încă are corp, mătase cu greutate, piele care a prins patină în loc să se subțieze.",
   },
   {
-    title: "Cuts that flatter",
+    title: "Croieli care avantajează",
     detail:
-      "A shoulder that sits where your shoulder is, a waist in the right place, a hem that falls without pulling.",
+      "Un umăr care cade acolo unde e umărul tău, o talie la locul ei, un tiv care stă fără să tragă.",
   },
   {
-    title: "Pieces with personality",
+    title: "Piese cu personalitate",
     detail:
-      "A garment should be recognisable as yours. Nothing here is anonymous, and nothing arrives in duplicate.",
+      "O haină ar trebui să se recunoască drept a ta. Nimic de aici nu e anonim și nimic nu vine în două exemplare.",
   },
 ];
 
@@ -28,11 +28,11 @@ export default function IleanaSelection() {
         <Reveal className="lg:sticky lg:top-40 lg:self-start">
           <div className="relative">
             <Placeholder
-              label="Founder portrait"
+              label="Portretul fondatoarei"
               tone="olive"
               variant="portrait"
               motif={3}
-              caption="Ileana in her studio, among the week’s selection"
+              caption="Ileana în atelier, printre piesele săptămânii"
             />
             <p className="font-script absolute -bottom-5 -right-2 text-4xl leading-none text-burgundy sm:text-5xl">
               Ileana
@@ -44,14 +44,15 @@ export default function IleanaSelection() {
           <Reveal>
             <span className="label flex items-center gap-3 text-warmgrey">
               <span aria-hidden="true" className="inline-block h-px w-8 bg-line-strong" />
-              The person behind the rail
+              Femeia din spatele umerașelor
             </span>
             <h2 id="selection-title" className="mt-4 text-3xl sm:text-4xl md:text-[2.75rem]">
-              Ileana’s Selection
+              Selecția Ileanei
             </h2>
             <p className="mt-6 max-w-[58ch] text-[1rem] leading-relaxed text-ink/80">
-              Every piece is personally examined, selected, and presented. Fabric, cut, construction,
-              period, brand, and the way a garment can be worn all matter more than passing trends.
+              Fiecare piesă este verificată, aleasă și prezentată personal. Materialul, croiala,
+              construcția, perioada, casa de modă și felul în care poate fi purtată contează mai mult
+              decât tendințele care trec.
             </p>
           </Reveal>
 
@@ -72,8 +73,8 @@ export default function IleanaSelection() {
           </ol>
 
           <Reveal delay={0.1} className="mt-10">
-            <LinkButton href="/story" size="lg">
-              Read Her Story
+            <LinkButton href="/povestea-ileanei" size="lg">
+              Citește povestea ei
             </LinkButton>
           </Reveal>
         </div>

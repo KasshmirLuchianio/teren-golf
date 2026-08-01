@@ -19,7 +19,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
-  if (!product) return { title: "Piece not found" };
+  if (!product) return { title: "Piesa nu a fost găsită" };
   return {
     title: `${product.brand} — ${product.name}`,
     description: product.description.slice(0, 155),
@@ -45,17 +45,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <Container className="py-6">
-        <nav aria-label="Breadcrumb">
+        <nav aria-label="Firimituri de navigare">
           <ol className="label flex flex-wrap items-center gap-2 text-[0.58rem] text-warmgrey">
             <li>
               <Link href="/" className="transition-colors hover:text-charcoal">
-                Home
+                Acasă
               </Link>
             </li>
             <li aria-hidden="true">/</li>
             <li>
               <Link
-                href={`/catalogue?category=${encodeURIComponent(product.category)}`}
+                href={`/catalog?category=${encodeURIComponent(product.category)}`}
                 className="transition-colors hover:text-charcoal"
               >
                 {product.category}
@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="lg:pt-2">
           <div className="flex items-center justify-between gap-4">
             <span className="label text-warmgrey">{product.brand}</span>
-            <span className="label text-[0.6rem] text-gold">One of one</span>
+            <span className="label text-[0.6rem] text-gold">Unicat</span>
           </div>
 
           <h1 className="mt-3 text-balance text-3xl leading-tight sm:text-4xl">{product.name}</h1>
@@ -84,62 +84,62 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             >
               {formatPrice(product.price)}
             </span>
-            <span className="label text-[0.6rem] text-warmgrey">Size {product.size}</span>
+            <span className="label text-[0.6rem] text-warmgrey">Mărimea {product.size}</span>
             <span
               className={`label text-[0.6rem] ${product.sold ? "text-burgundy" : "text-olive-deep"}`}
             >
-              {product.sold ? "Sold" : "Available"}
+              {product.sold ? "Vândută" : "Disponibilă"}
             </span>
           </div>
 
           <p className="mt-6 border-y border-line py-4 text-[0.82rem] leading-relaxed text-ink/70">
-            As a vintage or pre-owned piece, this item is available in one example only.
+            Fiind o piesă vintage sau pre-owned, există într-un singur exemplar.
           </p>
 
           <div className="mt-7">
             <ProductActions product={product} />
           </div>
 
-          {/* Ileana's note */}
+          {/* nota Ilenei */}
           <aside className="mt-10 border-l-2 border-burgundy bg-cream px-6 py-6">
-            <span className="label text-[0.6rem] text-burgundy">Ileana’s Note</span>
+            <span className="label text-[0.6rem] text-burgundy">Nota Ileanei</span>
             <p className="mt-3 font-serif text-lg leading-relaxed text-charcoal">
-              “{product.ileanaNote}”
+              „{product.ileanaNote}”
             </p>
             <p className="font-script mt-4 text-3xl leading-none text-burgundy">Ileana</p>
           </aside>
 
           <div className="mt-10">
-            <h2 className="label text-warmgrey">The piece</h2>
+            <h2 className="label text-warmgrey">Despre piesă</h2>
             <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/80">{product.description}</p>
           </div>
 
           <div className="mt-10 grid gap-x-12 gap-y-0 sm:grid-cols-2">
             <div>
-              <h2 className="label mb-2 text-warmgrey">Details</h2>
+              <h2 className="label mb-2 text-warmgrey">Detalii</h2>
               <dl>
-                <Spec label="Brand" value={product.brand} />
+                <Spec label="Marcă" value={product.brand} />
                 <Spec label="Material" value={product.material} />
-                <Spec label="Colour" value={product.colour} />
-                <Spec label="Condition" value={product.condition} />
-                <Spec label="Period" value={product.period} />
-                <Spec label="Reference" value={product.code} />
+                <Spec label="Culoare" value={product.colour} />
+                <Spec label="Stare" value={product.condition} />
+                <Spec label="Perioadă" value={product.period} />
+                <Spec label="Cod piesă" value={product.code} />
               </dl>
             </div>
 
             <div className="mt-10 sm:mt-0">
-              <h2 className="label mb-2 text-warmgrey">Measurements, laid flat</h2>
+              <h2 className="label mb-2 text-warmgrey">Măsurători, pe plat</h2>
               <dl>
                 {product.measurements.map((m) => (
                   <Spec key={m.label} label={m.label} value={m.value} />
                 ))}
               </dl>
               <p className="mt-4 text-[0.78rem] leading-relaxed text-warmgrey">
-                Measured by hand, with a tolerance of about a centimetre. See the{" "}
-                <Link href="/measurement-guide" className="link-underline text-burgundy">
-                  measurement guide
+                Măsurate manual, cu o toleranță de aproximativ un centimetru. Vezi{" "}
+                <Link href="/ghid-de-masuri" className="link-underline text-burgundy">
+                  ghidul de măsuri
                 </Link>{" "}
-                for how to compare them with a garment you already own.
+                pentru cum le compari cu o haină pe care o ai deja.
               </p>
             </div>
           </div>
@@ -150,8 +150,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <Reveal>
           <RelatedCarousel
             products={related}
-            title="Pieces chosen alongside this one"
-            lead="Selected the same week, or cut from a comparable cloth."
+            title="Piese alese în aceeași perioadă"
+            lead="Găsite în aceeași săptămână sau croite dintr-un material asemănător."
           />
         </Reveal>
       </Container>

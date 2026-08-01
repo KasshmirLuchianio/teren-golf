@@ -15,29 +15,29 @@ export default function WishlistPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Saved"
-        title="Your wishlist"
-        lead="Pieces you have set aside. Each one exists in a single example, so a saved garment is not a reserved one — the wishlist simply keeps it in view."
+        eyebrow="Salvate"
+        title="Favoritele tale"
+        lead="Piesele pe care le-ai pus deoparte. Fiecare există într-un singur exemplar, așa că o haină salvată nu este una rezervată — lista doar o ține la vedere."
       />
 
       <Container className="py-14 sm:py-20">
         {wishlistProducts.length === 0 ? (
           <div className="border border-line bg-cream/60 px-8 py-20 text-center">
-            <p className="font-serif text-2xl text-charcoal">Nothing saved yet.</p>
+            <p className="font-serif text-2xl text-charcoal">Nimic salvat încă.</p>
             <p className="mx-auto mt-3 max-w-[44ch] text-[0.92rem] leading-relaxed text-ink/70">
-              Use the heart on any piece to keep it here. It is the easiest way to compare two garments
-              before deciding.
+              Apasă inima de pe orice piesă ca să o păstrezi aici. E cel mai simplu fel de a compara
+              două haine înainte să te hotărăști.
             </p>
             <div className="mt-8 flex justify-center">
-              <LinkButton href="/catalogue" size="lg">
-                Browse the collection
+              <LinkButton href="/catalog" size="lg">
+                Vezi colecția
               </LinkButton>
             </div>
           </div>
         ) : (
           <>
             <p className="label border-b border-line pb-4 text-warmgrey">
-              {wishlistProducts.length} {wishlistProducts.length === 1 ? "piece" : "pieces"} saved
+              {wishlistProducts.length} {wishlistProducts.length === 1 ? "piesă salvată" : "piese salvate"}
             </p>
             <ul className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-7 lg:grid-cols-4 lg:gap-x-8">
               {wishlistProducts.map((product, i) => (
@@ -53,8 +53,8 @@ export default function WishlistPage() {
       <Container className="pb-20 sm:pb-28">
         <RelatedCarousel
           products={suggestions}
-          title="Ileana’s favourites this month"
-          lead="The pieces she would keep for herself, if she kept anything."
+          title="Favoritele Ileanei din luna aceasta"
+          lead="Piesele pe care le-ar păstra pentru ea, dacă ar păstra ceva."
         />
       </Container>
     </>

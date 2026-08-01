@@ -7,10 +7,10 @@ import { primaryNav } from "@/lib/navigation";
 import { useShop } from "@/lib/store";
 
 const secondary = [
-  { label: "Wishlist", href: "/wishlist" },
-  { label: "My account", href: "/account" },
+  { label: "Favorite", href: "/favorite" },
+  { label: "Contul meu", href: "/cont" },
   { label: "Contact", href: "/contact" },
-  { label: "Measurement guide", href: "/measurement-guide" },
+  { label: "Ghid de măsuri", href: "/ghid-de-masuri" },
 ];
 
 export default function MobileMenu() {
@@ -28,7 +28,7 @@ export default function MobileMenu() {
           transition={{ duration: 0.3 }}
           role="dialog"
           aria-modal="true"
-          aria-label="Menu"
+          aria-label="Meniu"
         >
           <div className="flex items-center justify-between border-b border-line px-5 py-5">
             <span className="font-serif text-base tracking-[0.3em] text-charcoal">ILEANA&nbsp;GIUSCA</span>
@@ -36,13 +36,13 @@ export default function MobileMenu() {
               type="button"
               onClick={closeOverlay}
               className="p-2 text-charcoal/70 transition-colors hover:text-burgundy"
-              aria-label="Close menu"
+              aria-label="Închide meniul"
             >
               <X size={20} strokeWidth={1.3} />
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="scroll-slim flex-1 overflow-y-auto px-5 pb-10 pt-6">
+          <nav aria-label="Meniu mobil" className="scroll-slim flex-1 overflow-y-auto px-5 pb-10 pt-6">
             <ul className="flex flex-col">
               {primaryNav.map((item, i) => (
                 <motion.li

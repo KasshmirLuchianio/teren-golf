@@ -42,10 +42,10 @@ export const emptyFilters: Filters = {
 };
 
 export const priceBands: { value: PriceBand; label: string }[] = [
-  { value: "0-200", label: "Under 200 RON" },
-  { value: "200-400", label: "200 – 400 RON" },
-  { value: "400-600", label: "400 – 600 RON" },
-  { value: "600+", label: "Over 600 RON" },
+  { value: "0-200", label: "Sub 200 lei" },
+  { value: "200-400", label: "200 – 400 lei" },
+  { value: "400-600", label: "400 – 600 lei" },
+  { value: "600+", label: "Peste 600 lei" },
 ];
 
 export function countActive(filters: Filters): number {
@@ -179,7 +179,7 @@ export default function FilterPanel({
 
   return (
     <div>
-      <Group title="Category" defaultOpen count={filters.category.length}>
+      <Group title="Categorie" defaultOpen count={filters.category.length}>
         {categories.map((c) => (
           <Check
             key={c.name}
@@ -190,7 +190,7 @@ export default function FilterPanel({
         ))}
       </Group>
 
-      <Group title="Size" defaultOpen count={filters.size.length}>
+      <Group title="Mărime" defaultOpen count={filters.size.length}>
         {allSizes.map((size) => (
           <Check
             key={size}
@@ -201,7 +201,7 @@ export default function FilterPanel({
         ))}
       </Group>
 
-      <Group title="Price" count={filters.price.length}>
+      <Group title="Preț" count={filters.price.length}>
         {priceBands.map((band) => (
           <Check
             key={band.value}
@@ -212,7 +212,7 @@ export default function FilterPanel({
         ))}
       </Group>
 
-      <Group title="Brand" count={filters.brand.length}>
+      <Group title="Marcă" count={filters.brand.length}>
         <div className="scroll-slim max-h-56 overflow-y-auto pr-2">
           {allBrands.map((brand) => (
             <Check
@@ -225,7 +225,7 @@ export default function FilterPanel({
         </div>
       </Group>
 
-      <Group title="Colour" count={filters.colour.length}>
+      <Group title="Culoare" count={filters.colour.length}>
         <div className="scroll-slim max-h-56 overflow-y-auto pr-2">
           {allColours.map((colour) => (
             <Check
@@ -249,7 +249,7 @@ export default function FilterPanel({
         ))}
       </Group>
 
-      <Group title="Condition" count={filters.condition.length}>
+      <Group title="Stare" count={filters.condition.length}>
         {allConditions.map((condition) => (
           <Check
             key={condition}
@@ -261,7 +261,7 @@ export default function FilterPanel({
       </Group>
 
       <Group
-        title="Selection"
+        title="Selecție"
         defaultOpen
         count={
           Number(filters.vintageOnly) +
@@ -271,12 +271,12 @@ export default function FilterPanel({
         }
       >
         <Toggle
-          label="Vintage only"
+          label="Doar vintage"
           checked={filters.vintageOnly}
           onChange={() => setFilters({ ...filters, vintageOnly: !filters.vintageOnly })}
         />
         <Toggle
-          label="Available items only"
+          label="Doar piese disponibile"
           checked={filters.availableOnly}
           onChange={() =>
             setFilters({
@@ -287,12 +287,12 @@ export default function FilterPanel({
           }
         />
         <Toggle
-          label="Newly added"
+          label="Nou adăugate"
           checked={filters.newlyAdded}
           onChange={() => setFilters({ ...filters, newlyAdded: !filters.newlyAdded })}
         />
         <Toggle
-          label="Show sold pieces"
+          label="Arată piesele vândute"
           checked={filters.includeSold}
           onChange={() =>
             setFilters({

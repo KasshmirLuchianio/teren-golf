@@ -14,43 +14,43 @@ const tiles: {
 }[] = [
   {
     initials: "MD",
-    category: "Trench coat",
-    caption: "Belted loosely, collar up, on a grey morning.",
-    place: "Bucharest",
+    category: "Trenci",
+    caption: "Legat lejer, cu gulerul ridicat, într-o dimineață gri.",
+    place: "București",
     tone: "parchment",
   },
   {
     initials: "AS",
-    category: "Silk blouse",
-    caption: "Worn tucked into flannel, two buttons open.",
+    category: "Bluză din mătase",
+    caption: "Băgată în pantaloni de flanel, cu doi nasturi desfăcuți.",
     place: "Brașov",
     tone: "butter",
   },
   {
     initials: "CL",
-    category: "Wool blazer",
-    caption: "Over a white shirt, sleeves pushed back.",
+    category: "Sacou din lână",
+    caption: "Peste o cămașă albă, cu mânecile suflecate.",
     place: "Cluj-Napoca",
     tone: "olive",
   },
   {
     initials: "EV",
-    category: "Evening dress",
-    caption: "Black crêpe, flat shoes, no jewellery.",
+    category: "Rochie de seară",
+    caption: "Crep negru, pantofi fără toc, fără bijuterii.",
     place: "Sibiu",
     tone: "charcoal",
   },
   {
     initials: "DP",
-    category: "Leather bag",
-    caption: "Held in the hand, as it was drawn to be.",
+    category: "Geantă din piele",
+    caption: "Ținută în mână, așa cum a fost desenată.",
     place: "Constanța",
     tone: "warmgrey",
   },
   {
     initials: "RN",
-    category: "Velvet jacket",
-    caption: "Burgundy velvet under warm restaurant light.",
+    category: "Sacou din catifea",
+    caption: "Catifea bordo la lumina caldă de restaurant.",
     place: "Iași",
     tone: "burgundy",
   },
@@ -71,9 +71,9 @@ export default function CommunityGallery() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Together"
-            title="From the Community Wardrobe"
-            lead="Photographs sent in by clients, and pieces spotted out in the world. This space is reserved for them — the tiles below stand in until the first images arrive."
+            eyebrow="Împreună"
+            title="Din garderoba comunității"
+            lead="Fotografii trimise de cliente și piese văzute prin oraș. Spațiul acesta e al lor — plăcile de mai jos țin locul până sosesc primele imagini."
             as="h2"
           />
         </Reveal>
@@ -133,7 +133,7 @@ export default function CommunityGallery() {
                       {tile.caption}
                     </p>
                     <span className="label mt-3 block text-[0.52rem]" style={{ opacity: 0.55 }}>
-                      Community image placeholder
+                      Machetă pentru fotografia clientei
                     </span>
                   </figcaption>
                 </figure>
@@ -150,7 +150,7 @@ export default function CommunityGallery() {
             className="label inline-flex w-full items-center justify-center gap-2.5 border border-charcoal/35 px-6 py-3.5 text-[0.66rem] text-charcoal transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory sm:w-auto"
           >
             <FacebookIcon size={15} />
-            Follow on Facebook
+            Urmărește pe Facebook
           </a>
           <a
             href={social.instagram}
@@ -159,7 +159,7 @@ export default function CommunityGallery() {
             className="label inline-flex w-full items-center justify-center gap-2.5 border border-charcoal/35 px-6 py-3.5 text-[0.66rem] text-charcoal transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory sm:w-auto"
           >
             <InstagramIcon size={15} />
-            Follow on Instagram
+            Urmărește pe Instagram
           </a>
         </Reveal>
       </Container>

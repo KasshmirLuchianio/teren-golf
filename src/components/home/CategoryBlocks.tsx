@@ -73,9 +73,9 @@ export default function CategoryBlocks() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="The wardrobe"
-            title="Six ways into the collection"
-            lead="Pieces are grouped the way a wardrobe is actually used — by what you reach for, not by season or by trend."
+            eyebrow="Garderoba"
+            title="Șase intrări în colecție"
+            lead="Piesele sunt grupate așa cum se folosește de fapt o garderobă — după ce iei în mână, nu după sezon sau tendință."
             as="h2"
           />
         </Reveal>
@@ -106,7 +106,7 @@ export default function CategoryBlocks() {
                       N° {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="label text-[0.6rem]" style={{ opacity: 0.7 }}>
-                      {count} available
+                      {count} disponibile
                     </span>
                   </div>
 
@@ -122,7 +122,7 @@ export default function CategoryBlocks() {
                     </p>
 
                     <span className="label mt-6 inline-flex items-center gap-2 text-[0.6rem]">
-                      View the pieces
+                      Vezi piesele
                       <ArrowUpRight
                         size={14}
                         strokeWidth={1.4}

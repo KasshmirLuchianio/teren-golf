@@ -8,7 +8,7 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 /** Front-end validation only — nothing is sent anywhere at this stage. */
 export default function NewsletterForm({
   tone = "light",
-  buttonLabel = "Join Ileana’s Circle",
+  buttonLabel = "Intră în cercul Ileanei",
   compact = false,
 }: {
   tone?: "light" | "dark";
@@ -25,7 +25,7 @@ export default function NewsletterForm({
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!EMAIL.test(email.trim())) {
-      setError("Please enter a valid email address.");
+      setError("Te rugăm să introduci o adresă de e-mail validă.");
       return;
     }
     setError(null);
@@ -41,7 +41,7 @@ export default function NewsletterForm({
         role="status"
       >
         <Check size={18} strokeWidth={1.4} className="text-gold" aria-hidden="true" />
-        Thank you. You are on the list — new selections will reach you first.
+        Îți mulțumim. Ești pe listă — selecțiile noi ajung întâi la tine.
       </p>
     );
   }
@@ -51,7 +51,7 @@ export default function NewsletterForm({
       <div className={`flex flex-col gap-3 ${compact ? "sm:flex-row" : "sm:flex-row sm:items-stretch"}`}>
         <div className="flex-1">
           <label htmlFor={`${id}-email`} className="sr-only">
-            Email address
+            Adresă de e-mail
           </label>
           <input
             id={`${id}-email`}
@@ -62,7 +62,7 @@ export default function NewsletterForm({
               setEmail(e.target.value);
               if (error) setError(null);
             }}
-            placeholder="your@email.com"
+            placeholder="adresa@ta.ro"
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? `${id}-error` : undefined}
             className={`w-full border-b bg-transparent px-1 py-3 text-[0.95rem] focus:outline-none focus-visible:outline-none ${

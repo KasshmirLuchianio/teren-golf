@@ -31,7 +31,7 @@ export default function ProductGallery({
   return (
     <div className="flex flex-col-reverse gap-4 sm:flex-row sm:gap-6">
       {/* thumbnails */}
-      <ul className="flex gap-3 overflow-x-auto sm:w-20 sm:flex-col sm:overflow-visible" role="tablist" aria-label="Product views">
+      <ul className="flex gap-3 overflow-x-auto sm:w-20 sm:flex-col sm:overflow-visible" role="tablist" aria-label="Imagini produs">
         {views.map((view, i) => (
           <li key={view} className="w-16 shrink-0 sm:w-full">
             <button
@@ -84,7 +84,7 @@ export default function ProductGallery({
                 motif={active + 2}
                 motifInset="30%"
                 ratio="4 / 5"
-                caption={`${productName} — image placeholder`}
+                caption={`${productName} — machetă de imagine`}
               />
             </motion.div>
           </AnimatePresence>
@@ -92,7 +92,7 @@ export default function ProductGallery({
 
         <div className="mt-3 flex items-center justify-between gap-4">
           <span className="label text-[0.58rem] text-warmgrey">
-            View {active + 1} of {views.length} · {views[active]}
+            Imaginea {active + 1} din {views.length} · {views[active]}
           </span>
           <button
             type="button"
@@ -101,7 +101,7 @@ export default function ProductGallery({
             aria-pressed={zoomed}
           >
             {zoomed ? <ZoomOut size={15} strokeWidth={1.4} /> : <ZoomIn size={15} strokeWidth={1.4} />}
-            {zoomed ? "Close zoom" : "Zoom"}
+            {zoomed ? "Închide zoom" : "Mărește"}
           </button>
         </div>
       </div>

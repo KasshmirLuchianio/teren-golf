@@ -22,14 +22,14 @@ export default function WishlistButton({
       type="button"
       onClick={() => toggleWishlist(slug)}
       aria-pressed={active}
-      aria-label={active ? `Remove ${name} from wishlist` : `Save ${name} to wishlist`}
+      aria-label={active ? `Scoate ${name} de la favorite` : `Salvează ${name} la favorite`}
       className={`inline-flex items-center gap-2.5 transition-colors duration-300 ${
         active ? "text-burgundy" : "text-charcoal/60 hover:text-burgundy"
       } ${className}`}
     >
       <Heart size={17} strokeWidth={1.3} fill={active ? "currentColor" : "none"} />
       {withLabel ? (
-        <span className="label text-[0.65rem]">{active ? "Saved" : "Save this piece"}</span>
+        <span className="label text-[0.65rem]">{active ? "Salvată" : "Salvează piesa"}</span>
       ) : null}
     </button>
   );

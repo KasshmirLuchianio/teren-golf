@@ -14,14 +14,14 @@ import FilterPanel, {
 } from "./FilterPanel";
 import { matchesMaterial, products, type Product } from "@/lib/products";
 
-type SortKey = "newest" | "price-asc" | "price-desc" | "recently-sold" | "favourites";
+type SortKey = "noi" | "pret-crescator" | "pret-descrescator" | "vandute-recent" | "favoritele-ilenei";
 
 const sortOptions: { value: SortKey; label: string }[] = [
-  { value: "newest", label: "Newest" },
-  { value: "price-asc", label: "Price, low to high" },
-  { value: "price-desc", label: "Price, high to low" },
-  { value: "recently-sold", label: "Recently sold" },
-  { value: "favourites", label: "Ileana’s favourites" },
+  { value: "noi", label: "Cele mai noi" },
+  { value: "pret-crescator", label: "Preț crescător" },
+  { value: "pret-descrescator", label: "Preț descrescător" },
+  { value: "vandute-recent", label: "Vândute recent" },
+  { value: "favoritele-ilenei", label: "Favoritele Ileanei" },
 ];
 
 function inBand(price: number, band: PriceBand): boolean {
@@ -51,15 +51,15 @@ function applyFilters(list: Product[], filters: Filters): Product[] {
 function applySort(list: Product[], sort: SortKey): Product[] {
   const sorted = [...list];
   switch (sort) {
-    case "price-asc":
+    case "pret-crescator":
       return sorted.sort((a, b) => a.price - b.price);
-    case "price-desc":
+    case "pret-descrescator":
       return sorted.sort((a, b) => b.price - a.price);
-    case "recently-sold":
+    case "vandute-recent":
       return sorted.sort(
         (a, b) => Number(b.sold) - Number(a.sold) || a.addedDaysAgo - b.addedDaysAgo,
       );
-    case "favourites":
+    case "favoritele-ilenei":
       return sorted.sort(
         (a, b) => Number(b.favourite) - Number(a.favourite) || a.addedDaysAgo - b.addedDaysAgo,
       );
@@ -71,7 +71,7 @@ function applySort(list: Product[], sort: SortKey): Product[] {
 export default function CatalogueView() {
   const params = useSearchParams();
   const [filters, setFilters] = useState<Filters>(emptyFilters);
-  const [sort, setSort] = useState<SortKey>("newest");
+  const [sort, setSort] = useState<SortKey>("noi");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Seed from the link that brought the visitor here (?category=…&sort=…).
@@ -102,12 +102,12 @@ export default function CatalogueView() {
       <header className="border-b border-line pb-8">
         <span className="label flex items-center gap-3 text-warmgrey">
           <span aria-hidden="true" className="inline-block h-px w-8 bg-line-strong" />
-          The collection
+          Colecția
         </span>
-        <h1 className="mt-4 text-3xl sm:text-4xl md:text-[2.75rem]">Every piece currently chosen</h1>
+        <h1 className="mt-4 text-3xl sm:text-4xl md:text-[2.75rem]">Toate piesele alese acum</h1>
         <p className="mt-4 max-w-[56ch] text-[0.95rem] leading-relaxed text-ink/75">
-          Each garment is examined, measured and described by hand before it appears here. Nothing is
-          listed twice, because nothing exists twice.
+          Fiecare haină este verificată, măsurată și descrisă manual înainte să apară aici. Nimic nu
+          este listat de două ori, pentru că nimic nu există în două exemplare.
         </p>
       </header>
 
@@ -116,14 +116,14 @@ export default function CatalogueView() {
         <aside className="hidden lg:block">
           <div className="sticky top-44">
             <div className="flex items-baseline justify-between border-b border-charcoal/25 pb-3">
-              <h2 className="label text-charcoal">Filter</h2>
+              <h2 className="label text-charcoal">Filtre</h2>
               {activeCount > 0 ? (
                 <button
                   type="button"
                   onClick={() => setFilters(emptyFilters)}
                   className="label text-[0.58rem] text-burgundy underline underline-offset-4"
                 >
-                  Clear ({activeCount})
+                  Șterge ({activeCount})
                 </button>
               ) : null}
             </div>
@@ -142,16 +142,16 @@ export default function CatalogueView() {
               className="label inline-flex items-center gap-2.5 border border-charcoal/35 px-4 py-2.5 text-[0.62rem] text-charcoal transition-colors hover:border-charcoal lg:hidden"
             >
               <SlidersHorizontal size={14} strokeWidth={1.4} aria-hidden="true" />
-              Filter{activeCount > 0 ? ` (${activeCount})` : ""}
+              Filtre{activeCount > 0 ? ` (${activeCount})` : ""}
             </button>
 
             <p className="label hidden text-warmgrey lg:block" aria-live="polite">
-              {visible.length} {visible.length === 1 ? "piece" : "pieces"}
+              {visible.length} {visible.length === 1 ? "piesă" : "piese"}
             </p>
 
             <div className="flex items-center gap-3">
               <label htmlFor="sort" className="label hidden text-[0.6rem] text-warmgrey sm:block">
-                Sort by
+                Sortează după
               </label>
               <select
                 id="sort"
@@ -169,23 +169,22 @@ export default function CatalogueView() {
           </div>
 
           <p className="label mt-4 text-warmgrey lg:hidden" aria-live="polite">
-            {visible.length} {visible.length === 1 ? "piece" : "pieces"}
+            {visible.length} {visible.length === 1 ? "piesă" : "piese"}
           </p>
 
           {/* grid */}
           {visible.length === 0 ? (
             <div className="border border-line bg-cream/60 px-8 py-20 text-center">
-              <p className="font-serif text-2xl text-charcoal">Nothing matches those filters.</p>
+              <p className="font-serif text-2xl text-charcoal">Nimic nu se potrivește cu aceste filtre.</p>
               <p className="mx-auto mt-3 max-w-[42ch] text-[0.9rem] leading-relaxed text-ink/70">
-                The selection is small by design. Loosen a filter, or write to Ileana and describe what
-                you are looking for.
+                Selecția e mică intenționat. Slăbește un filtru sau scrie-i Ilenei ce anume cauți.
               </p>
               <button
                 type="button"
                 onClick={() => setFilters(emptyFilters)}
                 className="label mt-7 border border-charcoal/35 px-6 py-3 text-[0.64rem] text-charcoal transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory"
               >
-                Clear all filters
+                Șterge toate filtrele
               </button>
             </div>
           ) : (
@@ -220,15 +219,15 @@ export default function CatalogueView() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               role="dialog"
               aria-modal="true"
-              aria-label="Filters"
+              aria-label="Filtre"
             >
               <div className="flex items-center justify-between border-b border-line px-5 py-5">
-                <h2 className="label text-charcoal">Filter</h2>
+                <h2 className="label text-charcoal">Filtre</h2>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
                   className="p-2 text-charcoal/70 transition-colors hover:text-burgundy"
-                  aria-label="Close filters"
+                  aria-label="Închide filtrele"
                 >
                   <X size={20} strokeWidth={1.3} />
                 </button>
@@ -244,14 +243,14 @@ export default function CatalogueView() {
                   onClick={() => setFilters(emptyFilters)}
                   className="label flex-1 border border-charcoal/35 px-4 py-3 text-[0.62rem] text-charcoal"
                 >
-                  Clear
+                  Șterge
                 </button>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
                   className="label flex-1 bg-charcoal px-4 py-3 text-[0.62rem] text-ivory"
                 >
-                  Show {visible.length}
+                  Arată {visible.length}
                 </button>
               </div>
             </motion.div>

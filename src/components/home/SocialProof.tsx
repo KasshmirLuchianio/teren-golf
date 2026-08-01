@@ -7,33 +7,33 @@ const testimonials = [
     initials: "AM",
     name: "Ana Maria",
     place: "Cluj-Napoca",
-    piece: "Wool blazer, 1990s",
+    piece: "Sacou din lână, anii '90",
     quote:
-      "I asked about the shoulder measurement and received a reply with three photographs and a note about how it would sit on me. It fits exactly as Ileana said it would.",
+      "Am întrebat de lățimea umărului și am primit un răspuns cu trei fotografii și o notă despre cum îmi va sta. Îmi vine exact cum a spus Ileana.",
   },
   {
     initials: "RD",
     name: "Ruxandra",
-    place: "Bucharest",
-    piece: "Silk shirt dress",
+    place: "București",
+    piece: "Rochie-cămașă din mătase",
     quote:
-      "I have bought vintage online for years and this is the first time nothing was hidden. The small mark on the hem was described before I even asked.",
+      "Cumpăr vintage online de ani de zile și e prima dată când nu s-a ascuns nimic. Semnul mic de pe tiv era descris înainte să întreb eu.",
   },
   {
     initials: "IL",
     name: "Ioana",
     place: "Timișoara",
-    piece: "Camel coat",
+    piece: "Palton camel",
     quote:
-      "The coat arrived wrapped in tissue with a handwritten card. My mother asked where I had found it. It is nineteen years older than I am.",
+      "Paltonul a venit învelit în foiță, cu un bilet scris de mână. Mama m-a întrebat de unde l-am luat. E cu nouăsprezece ani mai bătrân decât mine.",
   },
   {
     initials: "SC",
     name: "Simona",
     place: "Iași",
-    piece: "Pleated wool skirt",
+    piece: "Fustă plisată din lână",
     quote:
-      "What I value most is being told when a piece is not right for me. Twice now Ileana has talked me out of something. That is why I keep coming back.",
+      "Cel mai mult apreciez că mi se spune când o piesă nu e pentru mine. De două ori Ileana m-a convins să renunț. De asta mă tot întorc.",
   },
 ];
 
@@ -43,9 +43,9 @@ export default function SocialProof() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Clients"
-            title="Worn into a new story"
-            lead="Thousands of garments have already found a new chapter."
+            eyebrow="Cliente"
+            title="Purtate mai departe, într-o altă poveste"
+            lead="Mii de haine și-au găsit deja un capitol nou."
             align="center"
             as="h2"
           />
@@ -82,7 +82,7 @@ export default function SocialProof() {
 
         <Reveal delay={0.1} className="mt-10 text-center">
           <p className="label text-[0.6rem] text-warmgrey">
-            Testimonials shown here are placeholder copy for the prototype
+            Testimonialele de aici sunt text demonstrativ pentru prototip
           </p>
         </Reveal>
       </Container>

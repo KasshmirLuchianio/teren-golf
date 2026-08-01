@@ -19,7 +19,7 @@ export default function Wordmark({
     <Link
       href="/"
       className={`group inline-flex flex-col items-center ${className}`}
-      aria-label="Ileana Giusca — home"
+      aria-label="Ileana Giusca — pagina principală"
     >
       <span className={`font-serif ${sizes[size]} text-charcoal transition-colors group-hover:text-burgundy`}>
         ILEANA&nbsp;GIUSCA

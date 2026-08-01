@@ -34,12 +34,12 @@ export default function Footer() {
             <p className="label mt-3 text-[0.6rem] text-ivory/50">Pièces choisies avec histoire</p>
 
             <p className="mt-7 max-w-[38ch] text-[0.88rem] leading-relaxed text-ivory/70">
-              Vintage and pre-owned clothing, chosen one piece at a time for the way it is made and the
-              way it can be worn.
+              Haine vintage și pre-owned, alese una câte una pentru felul în care sunt făcute și pentru
+              felul în care pot fi purtate.
             </p>
 
             <div className="mt-8 max-w-md">
-              <h3 className="label text-[0.62rem] text-ivory/55">Newsletter</h3>
+              <h3 className="label text-[0.62rem] text-ivory/55">Buletin informativ</h3>
               <div className="mt-4">
                 <NewsletterForm tone="dark" compact />
               </div>
@@ -51,7 +51,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="border border-ivory/25 p-2.5 text-ivory/75 transition-colors hover:border-ivory hover:text-ivory"
-                aria-label="Ileana Giusca on Facebook"
+                aria-label="Ileana Giusca pe Facebook"
               >
                 <FacebookIcon size={17} />
               </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="border border-ivory/25 p-2.5 text-ivory/75 transition-colors hover:border-ivory hover:text-ivory"
-                aria-label="Ileana Giusca on Instagram"
+                aria-label="Ileana Giusca pe Instagram"
               >
                 <InstagramIcon size={17} />
               </a>
@@ -69,8 +69,8 @@ export default function Footer() {
 
           {/* navigation */}
           <div className="grid gap-10 sm:grid-cols-3">
-            <Column title="The collection" links={footerNav.collection} />
-            <Column title="Service" links={footerNav.help} />
+            <Column title="Colecția" links={footerNav.collection} />
+            <Column title="Ajutor" links={footerNav.help} />
             <div>
               <Column title="Legal" links={footerNav.legal} />
               <div className="mt-10">
@@ -79,8 +79,8 @@ export default function Footer() {
                   <a href="mailto:buna@ileanagiusca.ro" className="link-underline hover:text-ivory">
                     buna@ileanagiusca.ro
                   </a>
-                  <span>Bucharest, Romania</span>
-                  <span className="text-ivory/50">By appointment</span>
+                  <span>București, România</span>
+                  <span className="text-ivory/50">Cu programare</span>
                 </address>
               </div>
             </div>
@@ -89,10 +89,10 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-ivory/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-serif text-base italic text-ivory/80">
-            Carefully selected by Ileana Giusca in Romania.
+            Selectate cu grijă de Ileana Giusca, în România.
           </p>
           <p className="text-[0.72rem] text-ivory/45">
-            © {new Date().getFullYear()} Ileana Giusca. Concept prototype — all copy is editable.
+            © {new Date().getFullYear()} Ileana Giusca. Prototip de concept — textele sunt editabile.
           </p>
         </div>
       </div>

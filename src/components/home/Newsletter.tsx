@@ -10,16 +10,16 @@ export default function Newsletter() {
           <Reveal>
             <span className="label flex items-center gap-3 text-ivory/55">
               <span aria-hidden="true" className="inline-block h-px w-8 bg-ivory/30" />
-              Ileana’s Circle
+              Cercul Ileanei
             </span>
             <h2
               id="newsletter-title"
               className="mt-5 text-balance text-3xl leading-[1.12] text-ivory sm:text-4xl md:text-[2.75rem]"
             >
-              See new pieces before everyone else
+              Vezi piesele noi înaintea celorlalți
             </h2>
             <p className="mt-6 max-w-[46ch] text-[0.95rem] leading-relaxed text-ivory/75">
-              Subscribe to receive early access to newly added pieces before they are shared on Facebook.
+              Abonează-te ca să vezi piesele nou adăugate înainte să apară pe Facebook.
             </p>
           </Reveal>
 
@@ -27,11 +27,11 @@ export default function Newsletter() {
             <div className="border border-ivory/20 p-7 sm:p-9">
               <NewsletterForm tone="dark" />
               <p className="mt-6 text-[0.8rem] leading-relaxed text-ivory/60">
-                No unnecessary emails. Only new selections, rare finds, and early access.
+                Fără e-mailuri inutile. Doar selecții noi, găsiri rare și acces devreme.
               </p>
               <p className="mt-5 border-t border-ivory/15 pt-5 font-serif text-sm italic text-ivory/70">
-                Pieces are one of one. The list is often the difference between seeing a garment and
-                owning it.
+                Piesele sunt unicat. Lista face de multe ori diferența între a vedea o haină și a o
+                avea.
               </p>
             </div>
           </Reveal>

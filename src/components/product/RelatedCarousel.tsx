@@ -7,7 +7,7 @@ import type { Product } from "@/lib/products";
 
 export default function RelatedCarousel({
   products,
-  title = "You may also like",
+  title = "Ți-ar putea plăcea și",
   lead,
 }: {
   products: Product[];
@@ -29,7 +29,7 @@ export default function RelatedCarousel({
         <div>
           <span className="label flex items-center gap-3 text-warmgrey">
             <span aria-hidden="true" className="inline-block h-px w-8 bg-line-strong" />
-            Continue looking
+            Continuă să cauți
           </span>
           <h2 id="related-title" className="mt-3 text-2xl sm:text-3xl">
             {title}
@@ -42,7 +42,7 @@ export default function RelatedCarousel({
             type="button"
             onClick={() => scrollBy(-1)}
             className="border border-line-strong p-3 text-charcoal/70 transition-colors hover:border-charcoal hover:text-charcoal"
-            aria-label="Previous pieces"
+aria-label="Piesele anterioare"
           >
             <ChevronLeft size={17} strokeWidth={1.4} />
           </button>
@@ -50,7 +50,7 @@ export default function RelatedCarousel({
             type="button"
             onClick={() => scrollBy(1)}
             className="border border-line-strong p-3 text-charcoal/70 transition-colors hover:border-charcoal hover:text-charcoal"
-            aria-label="Next pieces"
+aria-label="Piesele următoare"
           >
             <ChevronRight size={17} strokeWidth={1.4} />
           </button>

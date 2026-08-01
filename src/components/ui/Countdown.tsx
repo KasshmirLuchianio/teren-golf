@@ -23,8 +23,8 @@ function split(ms: number) {
 }
 
 const units = [
-  { key: "days", label: "days" },
-  { key: "hours", label: "hours" },
+  { key: "days", label: "zile" },
+  { key: "hours", label: "ore" },
   { key: "minutes", label: "min" },
   { key: "seconds", label: "sec" },
 ] as const;
@@ -43,7 +43,7 @@ export default function Countdown({ className = "" }: { className?: string }) {
 
   return (
     <div className={`flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 ${className}`}>
-      <span className="label text-warmgrey">Next drop: Sunday, 7:00 PM</span>
+      <span className="label text-warmgrey">Următoarea selecție: duminică, ora 19:00</span>
 
       <div className="flex items-end gap-4" aria-live="off">
         {units.map((unit) => (
@@ -61,8 +61,8 @@ export default function Countdown({ className = "" }: { className?: string }) {
 
       <span className="sr-only">
         {remaining === null
-          ? "Countdown to the next drop is loading."
-          : `${parts.days} days, ${parts.hours} hours and ${parts.minutes} minutes until the next drop.`}
+          ? "Se încarcă numărătoarea până la următoarea selecție."
+          : `${parts.days} zile, ${parts.hours} ore și ${parts.minutes} minute până la următoarea selecție.`}
       </span>
     </div>
   );

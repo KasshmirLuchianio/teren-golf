@@ -10,12 +10,12 @@ import { searchProducts } from "@/lib/search";
 import { useShop } from "@/lib/store";
 
 const suggestions = [
-  "Wool blazer",
-  "Silk blouse",
-  "Burgundy dress",
-  "Trench coat",
-  "Leather bag",
-  "Under 300",
+  "Sacou din lână",
+  "Bluză din mătase",
+  "Rochie bordo",
+  "Trenci",
+  "Geantă din piele",
+  "Sub 300",
 ];
 
 export default function SearchOverlay() {
@@ -56,14 +56,14 @@ export default function SearchOverlay() {
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             role="dialog"
             aria-modal="true"
-            aria-label="Search the collection"
+            aria-label="Caută în colecție"
           >
             <div className="mx-auto max-w-3xl px-5 py-8 sm:px-8 sm:py-12">
               <div className="flex items-start justify-between gap-6">
                 <div className="flex-1">
-                  <span className="label text-warmgrey">Search the selection</span>
+                  <span className="label text-warmgrey">Caută în selecție</span>
                   <label htmlFor="site-search" className="sr-only">
-                    Search for a piece
+                    Caută o piesă
                   </label>
                   <div className="mt-4 flex items-center gap-3 border-b border-charcoal/40 pb-3">
                     <Search size={19} strokeWidth={1.3} className="text-warmgrey" aria-hidden="true" />
@@ -73,7 +73,7 @@ export default function SearchOverlay() {
                       type="search"
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder="A wool blazer, size M…"
+                      placeholder="Un sacou din lână, mărimea M…"
                       className="w-full bg-transparent font-serif text-xl text-charcoal placeholder:text-warmgrey/70 focus:outline-none sm:text-2xl"
                       autoComplete="off"
                     />
@@ -84,7 +84,7 @@ export default function SearchOverlay() {
                   type="button"
                   onClick={closeOverlay}
                   className="mt-1 p-2 text-charcoal/70 transition-colors hover:text-burgundy"
-                  aria-label="Close search"
+                  aria-label="Închide căutarea"
                 >
                   <X size={20} strokeWidth={1.3} />
                 </button>
@@ -92,7 +92,7 @@ export default function SearchOverlay() {
 
               {query.trim().length === 0 ? (
                 <div className="mt-8">
-                  <span className="label text-warmgrey">Often searched</span>
+                  <span className="label text-warmgrey">Căutate des</span>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {suggestions.map((s) => (
                       <li key={s}>
@@ -109,20 +109,20 @@ export default function SearchOverlay() {
                 </div>
               ) : results.length === 0 ? (
                 <p className="mt-8 font-serif text-lg text-ink/70">
-                  Nothing in the current selection matches that. New pieces are added every week — the
-                  wishlist is the surest way to be told first.
+                  Nimic din selecția de acum nu se potrivește. Adăugăm piese în fiecare săptămână, iar
+                  lista de favorite e cel mai sigur fel de a afla prima.
                 </p>
               ) : (
                 <ul aria-live="polite" className="mt-8 divide-y divide-line/70">
                   {results.map((result, i) => (
                     <li key={result.product.slug}>
                       <Link
-                        href={`/products/${result.product.slug}`}
+                        href={`/produse/${result.product.slug}`}
                         onClick={closeOverlay}
                         className="flex items-center gap-5 py-4 transition-colors hover:bg-cream/60"
                       >
                         <span className="w-16 shrink-0">
-                          <Placeholder label="Piece" tone={result.product.tone} motif={i} />
+                          <Placeholder label="Piesă" tone={result.product.tone} motif={i} />
                         </span>
                         <span className="flex-1">
                           <span className="label block text-[0.6rem] text-warmgrey">
@@ -132,11 +132,11 @@ export default function SearchOverlay() {
                             {result.product.name}
                           </span>
                           <span className="mt-0.5 block text-[0.78rem] text-warmgrey">
-                            Size {result.product.size} · {result.product.category}
+                            Mărimea {result.product.size} · {result.product.category}
                           </span>
                         </span>
                         <span className="text-sm text-charcoal">
-                          {result.product.sold ? "Sold" : formatPrice(result.product.price)}
+                          {result.product.sold ? "Vândută" : formatPrice(result.product.price)}
                         </span>
                       </Link>
                     </li>

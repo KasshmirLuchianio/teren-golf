@@ -17,43 +17,43 @@ type Segment = {
 
 const segments: Segment[] = [
   {
-    label: "Free shipping",
-    short: "Free\nshipping",
+    label: "Livrare gratuită",
+    short: "Livrare\ngratuită",
     fill: "#e9dfcc",
     ink: "#5c5344",
-    note: "Delivery within Romania is on us for your first order.",
+    note: "Livrarea în România e din partea noastră, la prima comandă.",
     code: "LIVRARE-IG",
   },
   {
-    label: "5% discount",
-    short: "5% off",
+    label: "5% reducere",
+    short: "-5%",
     fill: "#dfe0cf",
     ink: "#474c37",
-    note: "Five per cent off any single piece in the current selection.",
+    note: "Cinci la sută reducere la orice piesă din selecția de acum.",
     code: "IG-5",
   },
   {
-    label: "10% discount",
-    short: "10% off",
+    label: "10% reducere",
+    short: "-10%",
     fill: "#e5d6d4",
     ink: "#4c1119",
-    note: "Ten per cent off — the largest reduction we offer on a one-of-one piece.",
+    note: "Zece la sută reducere — cea mai mare reducere pe care o dăm la o piesă unicat.",
     code: "IG-10",
   },
   {
-    label: "Early access",
-    short: "Early\naccess",
+    label: "Acces devreme",
+    short: "Acces\ndevreme",
     fill: "#f0e5cd",
     ink: "#5f543c",
-    note: "You will see the next Sunday drop two hours before anyone else.",
+    note: "Vei vedea selecția de duminică cu două ore înaintea celorlalți.",
     code: "AVANT-IG",
   },
   {
-    label: "Try again",
-    short: "Try\nagain",
+    label: "Mai încearcă",
+    short: "Mai\nîncearcă",
     fill: "#e2ddd3",
     ink: "#5b544a",
-    note: "Not this time. One more turn, since you are here.",
+    note: "Nu de data asta. Încă o rotire, dacă tot ești aici.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function WheelOfFortune() {
   function onEmailSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!EMAIL.test(email.trim())) {
-      setError("Please enter a valid email address before spinning.");
+      setError("Introdu o adresă de e-mail validă înainte de rotire.");
       return;
     }
     setError(null);
@@ -115,13 +115,13 @@ export default function WheelOfFortune() {
     return (
       <div>
         <p className="text-[0.9rem] leading-relaxed text-ink/75">
-          A small thank you for visiting. Leave your email address and turn the wheel once — the reward
-          is applied to your next order.
+          Un mic mulțumesc pentru vizită. Lasă-ne adresa ta de e-mail și rotește o dată roata — premiul
+          se aplică la următoarea comandă.
         </p>
 
         <form onSubmit={onEmailSubmit} noValidate className="mt-6">
           <label htmlFor="cadeau-email" className="label text-warmgrey">
-            Email address
+            Adresă de e-mail
           </label>
           <input
             id="cadeau-email"
@@ -131,7 +131,7 @@ export default function WheelOfFortune() {
               setEmail(e.target.value);
               if (error) setError(null);
             }}
-            placeholder="your@email.com"
+            placeholder="adresa@ta.ro"
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? "cadeau-error" : undefined}
             className={`mt-3 w-full border-b bg-transparent px-1 py-3 text-[0.95rem] text-charcoal placeholder:text-warmgrey/70 focus:outline-none ${
@@ -145,11 +145,11 @@ export default function WheelOfFortune() {
           ) : null}
 
           <Button type="submit" className="mt-6 w-full">
-            Continue to the wheel
+            Mergi la roată
           </Button>
 
           <p className="mt-4 text-[0.72rem] leading-relaxed text-warmgrey">
-            Demonstration only. Nothing is sent and no address is stored at this stage.
+            Doar demonstrativ. Nu se trimite nimic și nu se salvează nicio adresă în această etapă.
           </p>
         </form>
       </div>
@@ -174,7 +174,7 @@ export default function WheelOfFortune() {
           transition={{ duration: reduce ? 0.2 : 4.2, ease: [0.16, 1, 0.3, 1] }}
           className="origin-center"
         >
-          <svg viewBox="0 0 200 200" className="w-full" role="img" aria-label="Wheel of small rewards">
+          <svg viewBox="0 0 200 200" className="w-full" role="img" aria-label="Roata cu premii mici">
             <circle cx="100" cy="100" r="96" fill="none" stroke="#c9bda6" strokeWidth="1" />
             {segments.map((segment, i) => {
               const mid = i * SEGMENT_ANGLE - 90;
@@ -218,14 +218,14 @@ export default function WheelOfFortune() {
       <div className="mt-7 w-full text-center" aria-live="polite">
         {result ? (
           <div>
-            <span className="label text-warmgrey">Your cadeau</span>
+            <span className="label text-warmgrey">Cadoul tău</span>
             <p className="mt-2 font-serif text-2xl text-charcoal">{result.label}</p>
             <p className="mx-auto mt-3 max-w-[36ch] text-[0.85rem] leading-relaxed text-ink/70">
               {result.note}
             </p>
             {result.code ? (
               <p className="mt-4 inline-block border border-line-strong px-5 py-2.5">
-                <span className="label text-[0.6rem] text-warmgrey">Code</span>{" "}
+                <span className="label text-[0.6rem] text-warmgrey">Cod</span>{" "}
                 <span className="ml-2 font-serif text-base tracking-[0.2em] text-charcoal">
                   {result.code}
                 </span>
@@ -234,22 +234,22 @@ export default function WheelOfFortune() {
           </div>
         ) : (
           <p className="text-[0.85rem] text-ink/65">
-            {spinning ? "Turning…" : "One turn, and the wheel decides."}
+            {spinning ? "Se rotește…" : "O singură rotire, și roata hotărăște."}
           </p>
         )}
       </div>
 
       <Button
         onClick={spin}
-        disabled={spinning || (result !== null && result.label !== "Try again")}
+        disabled={spinning || (result !== null && result.label !== "Mai încearcă")}
         className="mt-6 w-full"
         variant="burgundy"
       >
-        {spinning ? "Turning" : spins.current === 0 ? "Turn the wheel" : "Turn again"}
+        {spinning ? "Se rotește" : spins.current === 0 ? "Rotește roata" : "Mai rotește o dată"}
       </Button>
 
       <p className="mt-4 text-center text-[0.72rem] leading-relaxed text-warmgrey">
-        Front-end demonstration. Rewards are not yet connected to a real order system.
+        Demonstrație front-end. Premiile nu sunt încă legate de un sistem real de comenzi.
       </p>
     </div>
   );

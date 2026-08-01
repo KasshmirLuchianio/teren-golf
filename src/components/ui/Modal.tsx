@@ -91,7 +91,7 @@ export default function Modal({
               type="button"
               onClick={onClose}
               className="absolute right-4 top-4 p-2 text-warmgrey transition-colors hover:text-charcoal"
-              aria-label="Close"
+              aria-label="Închide"
             >
               <X size={18} strokeWidth={1.4} />
             </button>

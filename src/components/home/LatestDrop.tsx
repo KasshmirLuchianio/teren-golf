@@ -15,13 +15,13 @@ export default function LatestDrop() {
           <div>
             <span className="label flex items-center gap-3 text-warmgrey">
               <span aria-hidden="true" className="inline-block h-px w-8 bg-line-strong" />
-              This week
+              Săptămâna aceasta
             </span>
             <h2 id="latest-drop-title" className="mt-4 text-3xl sm:text-4xl md:text-[2.75rem]">
-              The Latest Drop
+              Ultima selecție
             </h2>
             <p className="mt-4 max-w-[48ch] text-[0.95rem] leading-relaxed text-ink/75">
-              Recently added pieces, each available in a single example.
+              Piese adăugate recent, fiecare disponibilă într-un singur exemplar.
             </p>
           </div>
 
@@ -37,8 +37,8 @@ export default function LatestDrop() {
         </ul>
 
         <Reveal className="mt-14 flex justify-center">
-          <LinkButton href="/catalogue?sort=newest" variant="outline" size="lg">
-            See everything newly added
+          <LinkButton href="/catalog?sort=noi" variant="outline" size="lg">
+            Vezi tot ce s-a adăugat
           </LinkButton>
         </Reveal>
       </Container>

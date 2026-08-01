@@ -39,16 +39,20 @@ port does not expose.
 
 ## Pages
 
+All copy and all routes are in Romanian — the shop is aimed exclusively at
+clients in Romania. The only French left is the brand signature line,
+*Pièces choisies avec histoire*, kept deliberately as part of the identity.
+
 | Route | What it is |
 | --- | --- |
-| `/` | Homepage: hero, latest drop with countdown, category blocks, Ileana's Selection, discovery module, newsletter, testimonials, community wardrobe |
-| `/catalogue` | Full catalogue with filters, sorting and a mobile filter drawer. Accepts `?category=…` and `?sort=…` |
-| `/products/[slug]` | Product page: gallery with zoom, measurements, Ileana's Note, related carousel (24 static pages) |
-| `/story` | Ileana's Story — text-led editorial |
+| `/` | Homepage: hero, Ultima selecție with countdown, category blocks, Selecția Ileanei, discovery module, newsletter, testimonials, community wardrobe |
+| `/catalog` | Full catalogue with filters, sorting and a mobile filter drawer. Accepts `?category=…` and `?sort=…` |
+| `/produse/[slug]` | Product page: gallery with zoom, measurements, Nota Ileanei, related carousel (24 static pages) |
+| `/povestea-ileanei` | Ileana's story — text-led editorial |
 | `/contact` | Contact form with validation |
-| `/wishlist`, `/bag`, `/account` | Saved pieces, bag, and a mock account area |
-| `/faq`, `/shipping-and-returns`, `/measurement-guide` | Service pages |
-| `/terms`, `/privacy` | Legal placeholders |
+| `/favorite`, `/cos`, `/cont` | Saved pieces, bag, and a mock account area |
+| `/intrebari-frecvente`, `/livrare-si-retur`, `/ghid-de-masuri` | Service pages |
+| `/termeni`, `/confidentialitate` | Legal placeholders |
 
 ## Structure
 
@@ -58,14 +62,14 @@ src/components/
   layout/                Header, mobile menu, bag drawer, search overlay, footer
   home/                  The eight homepage sections
   product/               Product card, gallery, actions, wishlist button, carousel
-  catalogue/             Catalogue view and filter panel
+  catalog/               Catalogue view and filter panel
   forms/                 Contact form
   wheel/                 "A little cadeau" floating button and wheel of fortune
   ui/                    Placeholder, Button, Container, Modal, Reveal, Countdown,
                          Accordion, SectionHeading, PageHeader, NewsletterForm,
                          SocialIcons
 src/lib/
-  products.ts            Mock catalogue (24 pieces) and category data
+  products.ts            Mock catalogue (24 pieces) and category data, in Romanian
   store.tsx              Wishlist / bag / overlay state, persisted to localStorage
   search.ts              Front-end simulation of the planned intelligent search
   navigation.ts          Navigation and social links
@@ -96,8 +100,9 @@ respects `prefers-reduced-motion`.
 
 ## Copy
 
-All copy is editable placeholder text written in the brand's voice. The story
-page deliberately contains no dates, sales figures, certifications or awards;
-those sections are marked for Ileana to complete in her own words. Prototype
-notes appear discreetly wherever a form or reward is not yet connected to a real
-system.
+All copy is editable placeholder text written in Romanian, in the brand's voice —
+rewritten rather than translated word for word. Prices are formatted with the
+`ro-RO` locale and shown in lei. The story page deliberately contains no dates,
+sales figures, certifications or awards; those sections are marked for Ileana to
+complete in her own words. Prototype notes appear discreetly wherever a form or
+reward is not yet connected to a real system.

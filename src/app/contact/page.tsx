@@ -9,27 +9,27 @@ import { social } from "@/lib/navigation";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Write to Ileana Giusca about a piece, a size, or something you are looking for. Every message is answered personally.",
+    "Scrie-i Ilenei Giusca despre o piesă, o mărime sau ceva ce cauți. Fiecare mesaj primește un răspuns personal.",
 };
 
 const channels = [
   {
-    label: "Email",
+    label: "E-mail",
     value: "buna@ileanagiusca.ro",
     href: "mailto:buna@ileanagiusca.ro",
-    note: "The surest way to reach her. Answered personally.",
+    note: "Cel mai sigur fel de a ajunge la ea. Răspunde personal.",
   },
   {
     label: "WhatsApp",
-    value: "Ask about a piece",
+    value: "Întreabă despre o piesă",
     href: social.whatsapp,
-    note: "For a quick question about a measurement or a mark.",
+    note: "Pentru o întrebare rapidă despre o măsurătoare sau un semn.",
   },
   {
-    label: "By appointment",
-    value: "Bucharest, Romania",
+    label: "Cu programare",
+    value: "București, România",
     href: null,
-    note: "Pieces can be seen and tried on, by arrangement.",
+    note: "Piesele pot fi văzute și probate, pe bază de programare.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Write to Ileana"
-        lead="A question about a measurement, a piece you are searching for, or an order already placed — all of it reaches the same person."
+        title="Scrie-i Ilenei"
+        lead="O întrebare despre o măsurătoare, o piesă pe care o cauți sau o comandă deja plasată — totul ajunge la aceeași persoană."
       />
 
       <Container className="grid gap-14 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-24">
@@ -49,7 +49,7 @@ export default function ContactPage() {
 
         <Reveal delay={0.08}>
           <div className="border border-line bg-cream p-8">
-            <h2 className="label text-warmgrey">Other ways to reach us</h2>
+            <h2 className="label text-warmgrey">Alte feluri de a ne găsi</h2>
             <ul className="mt-6 divide-y divide-line">
               {channels.map((channel) => (
                 <li key={channel.label} className="py-5 first:pt-0 last:pb-0">
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="border border-charcoal/25 p-2.5 text-charcoal/70 transition-colors hover:border-charcoal hover:text-charcoal"
-                aria-label="Ileana Giusca on Facebook"
+                aria-label="Ileana Giusca pe Facebook"
               >
                 <FacebookIcon size={17} />
               </a>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="border border-charcoal/25 p-2.5 text-charcoal/70 transition-colors hover:border-charcoal hover:text-charcoal"
-                aria-label="Ileana Giusca on Instagram"
+                aria-label="Ileana Giusca pe Instagram"
               >
                 <InstagramIcon size={17} />
               </a>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="border border-charcoal/25 p-2.5 text-charcoal/70 transition-colors hover:border-charcoal hover:text-charcoal"
-                aria-label="Ileana Giusca on WhatsApp"
+                aria-label="Ileana Giusca pe WhatsApp"
               >
                 <WhatsAppIcon size={17} />
               </a>
@@ -104,8 +104,8 @@ export default function ContactPage() {
 
           <div className="mt-8 border-l-2 border-burgundy pl-6">
             <p className="font-serif text-lg italic leading-relaxed text-charcoal">
-              “If you are unsure about a size, send me the measurements of something you already own and
-              love. That tells me more than a label ever will.”
+              „Dacă nu ești sigură de mărime, trimite-mi măsurătorile unei haine pe care o ai deja și îți
+              place. Îmi spun mai mult decât orice etichetă.”
             </p>
             <p className="label mt-4 text-[0.58rem] text-warmgrey">Ileana Giusca</p>
           </div>

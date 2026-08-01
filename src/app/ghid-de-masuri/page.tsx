@@ -7,31 +7,31 @@ import Placeholder from "@/components/ui/Placeholder";
 import { LinkButton } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Measurement Guide",
+  title: "Ghid de măsuri",
   description:
-    "How to measure a garment you already own and compare it with the flat measurements given for every vintage piece.",
+    "Cum măsori o haină pe care o ai deja și cum o compari cu măsurătorile pe plat date pentru fiecare piesă vintage.",
 };
 
 const howTo = [
   {
-    title: "Shoulder to shoulder",
-    body: "Lay the garment flat, face up. Measure from the outer edge of one shoulder seam straight across to the other. This is the measurement that decides whether a jacket will work at all.",
+    title: "Umăr la umăr",
+    body: "Întinde haina pe plat, cu fața în sus. Măsoară de la marginea exterioară a unei cusături de umăr drept până la cealaltă. Este măsurătoarea care decide dacă un sacou funcționează sau nu.",
   },
   {
-    title: "Chest",
-    body: "Measure straight across from one underarm seam to the other, then compare that number directly with ours — both are flat measurements, not body measurements.",
+    title: "Bust",
+    body: "Măsoară drept, de la o cusătură de subraț la cealaltă, apoi compară cifra direct cu a noastră — amândouă sunt măsurători pe plat, nu pe corp.",
   },
   {
-    title: "Waist",
-    body: "Find the narrowest point of the garment, usually just above the second button on a jacket, and measure straight across.",
+    title: "Talie",
+    body: "Găsește punctul cel mai îngust al hainei, de obicei imediat deasupra celui de-al doilea nasture la un sacou, și măsoară drept.",
   },
   {
-    title: "Sleeve",
-    body: "From the shoulder seam along the outside of the sleeve to the end of the cuff. For raglan sleeves, measure from the side of the neck instead.",
+    title: "Mânecă",
+    body: "De la cusătura umărului, pe exteriorul mânecii, până la capătul manșetei. La mânecile raglan, măsoară în schimb de la baza gâtului.",
   },
   {
-    title: "Total length",
-    body: "From the highest point of the shoulder, next to the collar, straight down to the hem.",
+    title: "Lungime totală",
+    body: "De la punctul cel mai de sus al umărului, lângă guler, drept în jos până la tiv.",
   },
 ];
 
@@ -46,25 +46,25 @@ export default function MeasurementGuidePage() {
   return (
     <>
       <PageHeader
-        eyebrow="Fit"
-        title="How to read the measurements"
-        lead="Vintage sizing moved with every decade, so the label on a garment tells you very little. The numbers do. Here is how to use them."
+        eyebrow="Potrivire"
+        title="Cum se citesc măsurătorile"
+        lead="Mărimile vintage s-au schimbat cu fiecare deceniu, așa că eticheta unei haine îți spune foarte puțin. Cifrele îți spun. Iată cum le folosești."
       />
 
       <Container className="grid gap-14 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-20">
         <div>
           <Reveal>
-            <h2 className="text-2xl sm:text-3xl">Start with a garment you already own</h2>
+            <h2 className="text-2xl sm:text-3xl">Pornește de la o haină pe care o ai deja</h2>
             <p className="mt-5 max-w-[60ch] text-[0.95rem] leading-relaxed text-ink/80">
-              Take a jacket, a dress or a shirt from your own wardrobe — one that fits the way you like.
-              Lay it flat, unbuttoned, without stretching it. Measure it with a tape, write the numbers
-              down, and compare them with the measurements given on every listing. That comparison is far
-              more reliable than any size chart.
+              Ia un sacou, o rochie sau o cămașă din garderoba ta — una care îți vine exact cum îți
+              place. Întinde-o pe plat, descheiată, fără să o întinzi cu forța. Măsoar-o cu centimetrul,
+              notează cifrele și compară-le cu măsurătorile din fiecare anunț. Comparația aceasta e mult
+              mai de încredere decât orice tabel de mărimi.
             </p>
           </Reveal>
 
           <Reveal delay={0.05} className="mt-12">
-            <h2 className="text-2xl sm:text-3xl">Where to measure</h2>
+            <h2 className="text-2xl sm:text-3xl">Unde se măsoară</h2>
             <ol className="mt-7 divide-y divide-line border-y border-line">
               {howTo.map((item, i) => (
                 <li key={item.title} className="flex gap-6 py-6">
@@ -83,20 +83,20 @@ export default function MeasurementGuidePage() {
           </Reveal>
 
           <Reveal delay={0.05} className="mt-14">
-            <h2 className="text-2xl sm:text-3xl">Indicative sizes</h2>
+            <h2 className="text-2xl sm:text-3xl">Mărimi orientative</h2>
             <p className="mt-4 max-w-[56ch] text-[0.9rem] leading-relaxed text-ink/75">
-              A rough guide only, given as flat measurements. Individual pieces vary by house, decade and
-              cut — always check the numbers on the listing itself.
+              Doar un reper, dat ca măsurători pe plat. Piesele variază de la o casă la alta, de la un
+              deceniu la altul și după croială — verifică întotdeauna cifrele din anunț.
             </p>
 
             <div className="scroll-slim mt-7 overflow-x-auto">
               <table className="w-full min-w-[420px] border-collapse text-left">
                 <thead>
                   <tr className="border-y border-line-strong">
-                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Size</th>
-                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Chest, flat</th>
-                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Waist, flat</th>
-                    <th scope="col" className="label py-3 text-[0.6rem] text-warmgrey">Hip, flat</th>
+                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Mărime</th>
+                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Bust, pe plat</th>
+                    <th scope="col" className="label py-3 pr-4 text-[0.6rem] text-warmgrey">Talie, pe plat</th>
+                    <th scope="col" className="label py-3 text-[0.6rem] text-warmgrey">Șold, pe plat</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,30 +118,30 @@ export default function MeasurementGuidePage() {
 
         <Reveal delay={0.1} className="lg:sticky lg:top-44 lg:self-start">
           <Placeholder
-            label="Editorial image"
+            label="Imagine editorială"
             tone="warmgrey"
             variant="editorial"
             motif={4}
-            caption="A jacket laid flat, tape across the shoulders"
+            caption="Un sacou întins pe plat, cu centimetrul pe umeri"
           />
 
           <div className="mt-8 border border-line bg-cream p-7">
-            <h2 className="font-serif text-xl">Still not sure?</h2>
+            <h2 className="font-serif text-xl">Tot nu ești sigură?</h2>
             <p className="mt-3 text-[0.88rem] leading-relaxed text-ink/75">
-              Send Ileana the measurements of your own garment and the reference of the piece you are
-              considering. She will tell you plainly whether it will work — including when it will not.
+              Trimite-i Ilenei măsurătorile hainei tale și codul piesei la care te gândești. Îți va
+              spune pe șleau dacă funcționează — inclusiv când nu funcționează.
             </p>
             <div className="mt-6">
               <LinkButton href="/contact" variant="outline" size="sm">
-                Ask about a fit
+                Întreabă despre potrivire
               </LinkButton>
             </div>
             <p className="mt-6 border-t border-line pt-5 text-[0.82rem] leading-relaxed text-ink/70">
-              See also{" "}
-              <Link href="/shipping-and-returns" className="link-underline text-burgundy">
-                shipping and returns
+              Vezi și{" "}
+              <Link href="/livrare-si-retur" className="link-underline text-burgundy">
+                livrare și retur
               </Link>{" "}
-              if a piece does not sit as you hoped.
+              dacă o piesă nu cade cum sperai.
             </p>
           </div>
         </Reveal>

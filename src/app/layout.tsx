@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     template: "%s · Ileana Giusca",
   },
   description:
-    "Vintage and pre-owned pieces selected by Ileana Giusca for women who build a personal style of their own. Each garment exists in a single example.",
-  // A typographic monogram drawn inline — no image file is used anywhere on the site.
+    "Piese vintage și pre-owned alese de Ileana Giusca pentru femei care își construiesc un stil al lor. Fiecare piesă există într-un singur exemplar.",
+  // Un monogram tipografic desenat inline — pe site nu se folosește niciun fișier imagine.
   icons: {
     icon: [
       {
@@ -51,14 +51,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable} ${signature.variable}`}>
+    <html lang="ro" className={`${cormorant.variable} ${jost.variable} ${signature.variable}`}>
       <body className="flex min-h-screen flex-col">
         <ShopProvider>
           <a
             href="#main"
             className="label sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-charcoal focus:px-4 focus:py-3 focus:text-ivory"
           >
-            Skip to content
+            Sari la conținut
           </a>
 
           <Header />

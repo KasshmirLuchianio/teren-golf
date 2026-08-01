@@ -9,11 +9,11 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 type Errors = { name?: string; email?: string; message?: string };
 
 const subjects = [
-  "A question about a piece",
-  "A piece I am looking for",
-  "Sizing and measurements",
-  "An order already placed",
-  "Something else",
+  "O întrebare despre o piesă",
+  "O piesă pe care o caut",
+  "Mărimi și măsurători",
+  "O comandă deja plasată",
+  "Altceva",
 ];
 
 const fieldClass =
@@ -32,9 +32,9 @@ export default function ContactForm() {
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const next: Errors = {};
-    if (values.name.trim().length < 2) next.name = "Please tell us how to address you.";
-    if (!EMAIL.test(values.email.trim())) next.email = "Please enter a valid email address.";
-    if (values.message.trim().length < 10) next.message = "A sentence or two is enough — please add a little more.";
+    if (values.name.trim().length < 2) next.name = "Spune-ne cum să ți ne adresăm.";
+    if (!EMAIL.test(values.email.trim())) next.email = "Introdu o adresă de e-mail validă.";
+    if (values.message.trim().length < 10) next.message = "O propoziție-două sunt de ajuns — mai scrie puțin.";
 
     setErrors(next);
     if (Object.keys(next).length === 0) setSent(true);
@@ -45,14 +45,14 @@ export default function ContactForm() {
       <div className="border border-line-strong bg-cream p-8">
         <p className="flex items-center gap-3 font-serif text-xl text-charcoal">
           <Check size={20} strokeWidth={1.4} className="text-gold" aria-hidden="true" />
-          Thank you, {values.name.trim().split(" ")[0]}.
+          Îți mulțumim, {values.name.trim().split(" ")[0]}.
         </p>
         <p className="mt-3 text-[0.9rem] leading-relaxed text-ink/75">
-          Your message has been noted. Ileana answers personally, usually within a day — she reads every
-          note herself rather than sending a template.
+          Mesajul tău a fost notat. Ileana răspunde personal, de obicei într-o zi — citește fiecare
+          mesaj ea însăși, nu trimite răspunsuri standard.
         </p>
         <p className="mt-5 text-[0.75rem] text-warmgrey">
-          Prototype only: nothing has been sent and no details have been stored.
+          Doar prototip: nu s-a trimis nimic și nu s-a salvat niciun detaliu.
         </p>
       </div>
     );
@@ -62,7 +62,7 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} noValidate className="grid gap-7">
       <div>
         <label htmlFor="name" className="label text-warmgrey">
-          Your name
+          Numele tău
         </label>
         <input
           id="name"
@@ -83,7 +83,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="label text-warmgrey">
-          Email address
+          Adresă de e-mail
         </label>
         <input
           id="email"
@@ -93,7 +93,7 @@ export default function ContactForm() {
           aria-invalid={errors.email ? true : undefined}
           aria-describedby={errors.email ? "email-error" : undefined}
           className={`${fieldClass} ${errors.email ? "border-burgundy" : ""}`}
-          placeholder="your@email.com"
+          placeholder="adresa@ta.ro"
         />
         {errors.email ? (
           <p id="email-error" role="alert" className="mt-2 text-[0.8rem] text-burgundy">
@@ -104,7 +104,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="subject" className="label text-warmgrey">
-          What is it about
+          Despre ce este vorba
         </label>
         <select
           id="subject"
@@ -122,7 +122,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="label text-warmgrey">
-          Your message
+          Mesajul tău
         </label>
         <textarea
           id="message"
@@ -132,7 +132,7 @@ export default function ContactForm() {
           aria-invalid={errors.message ? true : undefined}
           aria-describedby={errors.message ? "message-error" : undefined}
           className={`${fieldClass} resize-y ${errors.message ? "border-burgundy" : ""}`}
-          placeholder="I am looking for a wool coat in a warm neutral, size M, for autumn…"
+          placeholder="Caut un palton din lână, într-un neutru cald, mărimea M, pentru toamnă…"
         />
         {errors.message ? (
           <p id="message-error" role="alert" className="mt-2 text-[0.8rem] text-burgundy">
@@ -143,10 +143,10 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" size="lg">
-          Send the message
+          Trimite mesajul
         </Button>
         <p className="max-w-[36ch] text-[0.75rem] leading-relaxed text-warmgrey">
-          Front-end prototype — the form validates but does not send.
+          Prototip front-end — formularul validează, dar nu trimite.
         </p>
       </div>
     </form>

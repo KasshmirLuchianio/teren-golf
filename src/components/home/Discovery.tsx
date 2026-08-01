@@ -13,27 +13,25 @@ import { searchProducts } from "@/lib/search";
 type Option = {
   label: string;
   query: string;
-  /** A few options are better expressed as a rule than as a search phrase. */
+  /** Câteva opțiuni se exprimă mai bine ca regulă decât ca frază de căutare. */
   resolve?: () => Product[];
 };
 
 const options: Option[] = [
-  { label: "A French-style blazer", query: "blazer" },
-  { label: "A dress for a special occasion", query: "evening dress crêpe" },
-  { label: "A wool coat", query: "wool coat" },
-  { label: "A vintage handbag", query: "leather handbag" },
+  { label: "Un sacou în stil franțuzesc", query: "sacou" },
+  { label: "O rochie pentru o ocazie", query: "rochie seară crep" },
+  { label: "Un palton din lână", query: "palton lână" },
+  { label: "O geantă vintage", query: "geantă piele" },
   {
-    label: "Pieces under 150 RON",
-    query: "under 150",
+    label: "Piese sub 150 de lei",
+    query: "sub 150",
     resolve: () => products.filter((p) => p.price <= 150 && !p.sold),
   },
   {
-    label: "Premium labels",
-    query: "premium labels",
+    label: "Case de modă mari",
+    query: "case de modă",
     resolve: () =>
-      products
-        .filter((p) => p.price >= 500 && !p.sold)
-        .sort((a, b) => b.price - a.price),
+      products.filter((p) => p.price >= 500 && !p.sold).sort((a, b) => b.price - a.price),
   },
 ];
 
@@ -56,7 +54,7 @@ export default function Discovery() {
   }
 
   const heading = submitted.trim()
-    ? `For “${submitted.trim()}”`
+    ? `Pentru „${submitted.trim()}”`
     : active
       ? active.label
       : null;
@@ -68,20 +66,19 @@ export default function Discovery() {
           <Reveal>
             <span className="label flex items-center gap-3 text-warmgrey">
               <span aria-hidden="true" className="inline-block h-px w-8 bg-line-strong" />
-              Personal discovery
+              Căutare personală
             </span>
             <h2 id="discovery-title" className="mt-4 text-3xl sm:text-4xl md:text-[2.6rem]">
-              What are you looking for today?
+              Ce cauți astăzi?
             </h2>
             <p className="mt-6 max-w-[46ch] text-[0.95rem] leading-relaxed text-ink/75">
-              Tell it in your own words, the way you would tell Ileana in the studio. This is a first
-              sketch of the search we are building — it reads the phrase and proposes from the current
-              selection.
+              Spune cu cuvintele tale, așa cum i-ai spune Ilenei în atelier. Este o primă schiță a
+              căutării pe care o construim — citește fraza și îți propune din selecția de acum.
             </p>
 
             <form onSubmit={onSubmit} className="mt-9" role="search">
               <label htmlFor="discovery-input" className="label text-warmgrey">
-                Describe the piece
+                Descrie piesa
               </label>
               <div className="mt-3 flex items-center gap-3 border-b border-charcoal/40 pb-3 focus-within:border-charcoal">
                 <Search size={18} strokeWidth={1.3} className="shrink-0 text-warmgrey" aria-hidden="true" />
@@ -90,7 +87,7 @@ export default function Discovery() {
                   type="search"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="I am looking for an elegant black dress, size M…"
+                  placeholder="Caut o rochie neagră elegantă, mărimea M…"
                   className="w-full bg-transparent font-serif text-lg text-charcoal placeholder:text-warmgrey/75 focus:outline-none sm:text-xl"
                 />
               </div>
@@ -98,13 +95,13 @@ export default function Discovery() {
                 type="submit"
                 className="label mt-5 bg-charcoal px-6 py-3 text-[0.68rem] text-ivory transition-colors hover:bg-burgundy"
               >
-                Show me
+                Arată-mi
               </button>
             </form>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <span className="label text-warmgrey">Or start from one of these</span>
+            <span className="label text-warmgrey">Sau pornește de aici</span>
             <ul className="mt-5 flex flex-wrap gap-2.5">
               {options.map((option) => {
                 const isActive = active?.label === option.label;
@@ -143,7 +140,7 @@ export default function Discovery() {
                     <div className="flex items-baseline justify-between gap-4 border-b border-line pb-3">
                       <h3 className="font-serif text-lg text-charcoal">{heading}</h3>
                       <span className="label text-[0.6rem] text-warmgrey">
-                        {results.length} {results.length === 1 ? "piece" : "pieces"}
+                        {results.length} {results.length === 1 ? "piesă" : "piese"}
                       </span>
                     </div>
 
@@ -157,10 +154,9 @@ export default function Discovery() {
                       </ul>
                     ) : (
                       <p className="mt-6 max-w-[44ch] font-serif text-base italic leading-relaxed text-ink/70">
-                        Nothing matching just now. Tell Ileana what you are after and she will watch for
-                        it —{" "}
+                        Nimic potrivit chiar acum. Spune-i Ilenei ce cauți și va fi cu ochii pe asta —{" "}
                         <Link href="/contact" className="link-underline not-italic text-burgundy">
-                          send a request
+                          trimite o cerere
                         </Link>
                         .
                       </p>
@@ -174,8 +170,8 @@ export default function Discovery() {
                     exit={{ opacity: 0 }}
                     className="max-w-[46ch] font-serif text-base italic leading-relaxed text-ink/60"
                   >
-                    “Most women arrive knowing the feeling they want, not the label. That is a better
-                    place to start.”
+                    „Majoritatea femeilor vin știind ce senzație vor, nu ce etichetă. E un punct de
+                    pornire mai bun.”
                   </motion.p>
                 )}
               </AnimatePresence>

@@ -45,7 +45,7 @@ export default function Header() {
             type="button"
             className={`${iconButton} lg:hidden`}
             onClick={() => openOverlay("menu")}
-            aria-label="Open menu"
+            aria-label="Deschide meniul"
           >
             <Menu size={20} strokeWidth={1.3} />
           </button>
@@ -54,7 +54,7 @@ export default function Header() {
             type="button"
             className={`${iconButton} hidden lg:inline-flex`}
             onClick={() => openOverlay("search")}
-            aria-label="Search the collection"
+            aria-label="Caută în colecție"
           >
             <Search size={19} strokeWidth={1.3} />
           </button>
@@ -69,17 +69,17 @@ export default function Header() {
             type="button"
             className={`${iconButton} lg:hidden`}
             onClick={() => openOverlay("search")}
-            aria-label="Search the collection"
+            aria-label="Caută în colecție"
           >
             <Search size={19} strokeWidth={1.3} />
           </button>
 
-          <Link href="/wishlist" className={`${iconButton} hidden sm:inline-flex`} aria-label="Wishlist">
+          <Link href="/favorite" className={`${iconButton} hidden sm:inline-flex`} aria-label="Favorite">
             <Heart size={19} strokeWidth={1.3} />
             <CountBadge count={wishlist.length} />
           </Link>
 
-          <Link href="/account" className={`${iconButton} hidden sm:inline-flex`} aria-label="My account">
+          <Link href="/cont" className={`${iconButton} hidden sm:inline-flex`} aria-label="Contul meu">
             <User size={19} strokeWidth={1.3} />
           </Link>
 
@@ -87,7 +87,7 @@ export default function Header() {
             type="button"
             className={iconButton}
             onClick={() => openOverlay("bag")}
-            aria-label={`Shopping bag, ${bag.length} ${bag.length === 1 ? "piece" : "pieces"}`}
+            aria-label={`Coș, ${bag.length} ${bag.length === 1 ? "piesă" : "piese"}`}
           >
             <ShoppingBag size={19} strokeWidth={1.3} />
             <CountBadge count={bag.length} />
@@ -97,7 +97,7 @@ export default function Header() {
 
       {/* desktop navigation */}
       <nav
-        aria-label="Primary"
+        aria-label="Principal"
         className={`hidden overflow-hidden border-t border-line/70 transition-all duration-500 lg:block ${
           condensed ? "max-h-0 opacity-0" : "max-h-16 opacity-100"
         }`}
