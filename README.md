@@ -1,96 +1,103 @@
-# Golf Club Valea Verde — Website de prezentare
+# Ileana Giusca — website concept and front-end prototype
 
-Website static (HTML/CSS/JS, fără build tools) pentru un teren de golf cu
-pensiune: homepage, pagină teren de golf, pagină cazare, galerie, prețuri
-și contact/rezervare. Optimizat pentru mobil, ușor de găzduit pe orice
-hosting simplu (nu necesită server Node.js sau bază de date).
+A premium, editorial front-end concept for a Romanian women's vintage and
+pre-owned fashion brand, built around the taste and expertise of its founder,
+Ileana Giusca. Parisian vintage boutique by way of a French fashion magazine:
+warm ivory paper, editorial serif headlines, hairline rules, and no rounded
+"card" styling.
 
-## Structură
+Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · Framer Motion ·
+Lucide icons · mock data only, no backend.
 
-```
-index.html                 Homepage (hero 3D + foto)
-teren-de-golf.html         Pagină teren de golf
-cazare.html                Pagină cazare / pensiune
-galerie.html               Galerie foto (filtre pe categorii + lightbox)
-preturi.html               Prețuri și pachete
-contact.html               Formular de rezervare + hartă + contact
-partials/                  Header și footer comune, încărcate automat
-assets/css/style.css       Design system premium (glassmorphism, gold, noise)
-assets/js/config.js        Datele de contact/site — un singur loc de editat
-assets/js/include.js       Încarcă header/footer și aplică datele din config.js
-assets/js/hero3d.js        Scena 3D din hero (Three.js): minge de golf, inel
-                           auriu, particule; fallback static pe mobil
-assets/js/fx.js            Reveal cu stagger, tilt 3D pe carduri, contoare,
-                           parallax pe hero-urile interioare
-assets/js/main.js          Filtre galerie, lightbox, formular
-assets/js/vendor/three.min.js  Three.js r160 (local, fără CDN)
-assets/img/                Fotografii generate AI (Higgsfield, soul_location)
-```
+## No images, anywhere
 
-> **Notă imagini:** fotografiile din `assets/img/` sunt generate cu AI ca
-> imagini de prezentare premium. Înlocuiește-le cu fotografii reale ale
-> terenului atunci când clientul le furnizează — păstrează aceleași nume de
-> fișiere și nu trebuie modificat nimic în cod.
+This prototype contains **no photography and no image files at all** — no stock
+photos, no external URLs, no placeholder services. Every future image is
+represented by a drawn placeholder built from tone, hairline frames, abstract
+SVG geometry and a discreet label ("Founder editorial portrait", "Product
+image", "Editorial image"). The only inline graphics are hand-drawn geometric
+marks: the hero portrait composition, the category cover ornaments, the
+wheel of fortune, and the social glyphs in `SocialIcons.tsx` (Lucide no longer
+ships brand marks). The favicon is a typographic monogram declared as an inline
+data URI in `layout.tsx`, so no asset file is needed.
 
-## Ce trebuie completat înainte de livrare către client
+`src/components/ui/Placeholder.tsx` is the single component behind all product
+and editorial placeholders — change it once and every surface follows.
 
-### 1. Datele de contact (`assets/js/config.js`)
-Editează un singur fișier pentru a actualiza peste tot în site:
-- `name`, `tagline` — numele real al terenului de golf
-- `phoneDisplay` / `phoneHref` — numărul de telefon real
-- `whatsappNumber` — numărul de WhatsApp (fără `+`, ex: `40712345678`)
-- `email` — adresa de email reală
-- `address` — adresa completă
-- `mapQuery` — adresa sau numele locației, folosită pentru harta Google
-  (nu necesită cheie API — funcționează automat din adresă)
-- `facebookUrl`, `instagramUrl` — linkurile către rețelele sociale
-- `formEndpoint` — vezi pasul 2 mai jos
-
-### 2. Formularul de rezervare
-Formularul trimite datele prin [Formspree](https://formspree.io) (gratuit
-până la 50 de mesaje/lună — suficient pentru un site de prezentare):
-
-1. Creează un cont gratuit pe formspree.io
-2. Creează un formular nou și copiază endpoint-ul (arată așa:
-   `https://formspree.io/f/xxxxxxx`)
-3. Înlocuiește `formEndpoint` din `assets/js/config.js` cu acel link
-
-Dacă preferi altă soluție (email direct, alt serviciu), doar schimbă
-logica din `initForm()` în `assets/js/main.js`.
-
-### 3. Fotografii reale
-Site-ul folosește fotografii generate cu AI (Higgsfield) în `assets/img/`.
-Când clientul furnizează fotografii reale ale terenului, înlocuiește
-fișierele păstrând aceleași nume (`hero-golf.jpg`, `fairway.jpg`,
-`aerial.jpg` etc.) — nu e nevoie de nicio modificare în cod. Lightbox-ul
-citește automat imaginea din fiecare `.gallery-item`.
-
-### 4. Textele
-Toate textele sunt scrise generic, pregătite să fie personalizate cu
-informații reale despre teren (număr de găuri, dotări, camere de cazare,
-prețuri reale etc.). Caută în fiecare pagină HTML și actualizează.
-
-## Testare locală
-
-Fiindcă header-ul și footer-ul se încarcă automat din `partials/` prin
-JavaScript (`fetch`), site-ul trebuie rulat printr-un mic server local
-(nu funcționează deschizând fișierul direct cu dublu-click, din cauza
-restricțiilor de securitate ale browserului):
+## Running it
 
 ```bash
-# din folderul proiectului
-python3 -m http.server 8000
-# apoi deschide http://localhost:8000 în browser
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
 ```
 
-## Publicare (domeniu + hosting)
+Node 20+ is recommended. Note that `typescript` is pinned to v5 — Next.js reads
+`tsconfig.json` paths through the TypeScript JS API, which TypeScript 7's native
+port does not expose.
 
-Site-ul este 100% static, deci poate fi găzduit oriunde:
+## Pages
 
-- **Hosting clasic (cPanel/FTP)** — încarcă toate fișierele prin FTP în
-  folderul `public_html` al domeniului.
-- **Netlify / Vercel / GitHub Pages** — conectează repository-ul și
-  publică automat (gratuit, cu HTTPS inclus).
+| Route | What it is |
+| --- | --- |
+| `/` | Homepage: hero, latest drop with countdown, category blocks, Ileana's Selection, discovery module, newsletter, testimonials, community wardrobe |
+| `/catalogue` | Full catalogue with filters, sorting and a mobile filter drawer. Accepts `?category=…` and `?sort=…` |
+| `/products/[slug]` | Product page: gallery with zoom, measurements, Ileana's Note, related carousel (24 static pages) |
+| `/story` | Ileana's Story — text-led editorial |
+| `/contact` | Contact form with validation |
+| `/wishlist`, `/bag`, `/account` | Saved pieces, bag, and a mock account area |
+| `/faq`, `/shipping-and-returns`, `/measurement-guide` | Service pages |
+| `/terms`, `/privacy` | Legal placeholders |
 
-După publicare, actualizează `mapQuery` din `config.js` cu adresa exactă,
-pentru ca harta Google să indice locația corectă.
+## Structure
+
+```
+src/app/                 Routes (App Router), global stylesheet, metadata
+src/components/
+  layout/                Header, mobile menu, bag drawer, search overlay, footer
+  home/                  The eight homepage sections
+  product/               Product card, gallery, actions, wishlist button, carousel
+  catalogue/             Catalogue view and filter panel
+  forms/                 Contact form
+  wheel/                 "A little cadeau" floating button and wheel of fortune
+  ui/                    Placeholder, Button, Container, Modal, Reveal, Countdown,
+                         Accordion, SectionHeading, PageHeader, NewsletterForm,
+                         SocialIcons
+src/lib/
+  products.ts            Mock catalogue (24 pieces) and category data
+  store.tsx              Wishlist / bag / overlay state, persisted to localStorage
+  search.ts              Front-end simulation of the planned intelligent search
+  navigation.ts          Navigation and social links
+```
+
+## Design system
+
+Defined as Tailwind theme tokens in `src/app/globals.css`:
+
+- **Colour** — warm ivory `#f7f2e9` (the page), cream, butter, parchment,
+  charcoal `#1c1917`, burgundy `#6b1f2b`, muted olive `#656b4e`, warm grey, and
+  antique gold `#a98a4b` used sparingly (one accent per composition).
+- **Type** — Cormorant Garamond for headings, Jost for body, navigation, labels
+  and buttons, Mrs Saint Delafield for the "Selected by Ileana" signature.
+- **Utilities** — `.label` (letterspaced small caps), `.paper` (woven texture),
+  `.placeholder-surface`, `.link-underline`.
+
+## Interactions (all front-end, all mock)
+
+Mobile menu, search overlay with live mock search, wishlist toggles persisted to
+localStorage, bag drawer and bag page, catalogue filters and sorting, mobile
+filter drawer, drop countdown, newsletter and contact validation, wheel of
+fortune behind an email gate, product gallery selection and zoom simulation,
+reserve and WhatsApp enquiry, sold-out states, related-product carousel.
+
+Motion is deliberately restrained — short fades and rises — and every animation
+respects `prefers-reduced-motion`.
+
+## Copy
+
+All copy is editable placeholder text written in the brand's voice. The story
+page deliberately contains no dates, sales figures, certifications or awards;
+those sections are marked for Ileana to complete in her own words. Prototype
+notes appear discreetly wherever a form or reward is not yet connected to a real
+system.

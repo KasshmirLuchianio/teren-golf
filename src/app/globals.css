@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Palette: Parisian interiors & vintage fashion publications --- */
+  --color-ivory: #f7f2e9;
+  --color-cream: #efe7d8;
+  --color-butter: #f3e9d2;
+  --color-parchment: #e9dfcc;
+  --color-charcoal: #1c1917;
+  --color-ink: #2a2622;
+  --color-burgundy: #6b1f2b;
+  --color-burgundy-deep: #4c1119;
+  --color-olive: #656b4e;
+  --color-olive-deep: #474c37;
+  --color-gold: #a98a4b;
+  --color-warmgrey: #8a8175;
+  --color-line: #ddd3c1;
+  --color-line-strong: #c9bda6;
+
+  /* --- Type --- */
+  --font-serif: var(--font-cormorant), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
+  --font-script: var(--font-signature), "Snell Roundhand", cursive;
+
+  /* --- Motion --- */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-charcoal);
+    letter-spacing: -0.01em;
+  }
+
+  /* keep anchored sections clear of the sticky header */
+  :target {
+    scroll-margin-top: 8rem;
+  }
+
+  ::selection {
+    background: var(--color-burgundy);
+    color: var(--color-ivory);
+  }
+
+  /* Visible, consistent focus for every interactive element */
+  :focus-visible {
+    outline: 2px solid var(--color-burgundy);
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Small caps label used across the site for eyebrow text and meta */
+  .label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* Editorial rule: a hairline with a small serif ornament */
+  .rule-ornament::before,
+  .rule-ornament::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: var(--color-line-strong);
+    flex: 1;
+  }
+
+  /* Paper: an off-white surface with a barely-there woven texture */
+  .paper {
+    background-color: var(--color-cream);
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        rgba(28, 25, 23, 0.022) 0px,
+        rgba(28, 25, 23, 0.022) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(28, 25, 23, 0.022) 0px,
+        rgba(28, 25, 23, 0.022) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+  }
+
+  /* Image placeholders — no photography, only tone, weave and line */
+  .placeholder-surface {
+    background-color: var(--color-parchment);
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        rgba(28, 25, 23, 0.028) 0px,
+        rgba(28, 25, 23, 0.028) 1px,
+        transparent 1px,
+        transparent 7px
+      );
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-editorial);
+  }
+
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Slim, unobtrusive scrollbars inside drawers and filter panels */
+.scroll-slim {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
